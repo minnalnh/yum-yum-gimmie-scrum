@@ -16,14 +16,27 @@
 }
 
 .wrapper {
+	/* display: flex;
+	flex-direction: column; */
 	padding: 1rem;
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	margin: 0 auto;
 	border: 1px solid black;
+	height: 100vh;
 	max-width: 480px;
-	width: 480px;
+}
+
+.wrapper--greenleaf {
+	background-color: var(--primary-bg-color);
+	background-image: url('../resources/images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+}
+
+.wrapper--grey {
+	background-color: var(--color-darkgrey);
 }
 
 .btn {
