@@ -22,7 +22,7 @@
 	justify-content: center;
 	margin: 0 auto;
 	border: 1px solid black;
-	height: 100vh;
+	min-height: 100vh;
 	max-width: 480px;
 }
 
@@ -48,6 +48,8 @@
 	color: var(--color-white);
 	padding: 1.5rem 0 1.5rem 0;
 	cursor: pointer;
+	text-decoration: none;
+	width: 100%;
 }
 
 .btn--red {
