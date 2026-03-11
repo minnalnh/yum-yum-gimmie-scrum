@@ -15,10 +15,10 @@
 .orderStatus{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     flex-direction: column;
-    height: 90%;
-    
+    height: 100%;
+    flex: 1;
 }
 
 h1{
@@ -55,4 +55,14 @@ img{
 .btn__section{
     margin-top:auto;
     width: 100%;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
