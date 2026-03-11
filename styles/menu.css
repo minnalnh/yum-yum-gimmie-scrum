@@ -108,6 +108,8 @@
     padding: 4px 8px 4px 8px;
     border-radius: 5px;
     flex-grow: 0;
+    width: 60px;
+    text-align: center;
 }
 
 .menu__cardAdd{
@@ -124,11 +126,11 @@
     align-self: center;
     padding-bottom: 4px;
     padding-left: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .menu__cardBuy__button{
-    margin-left: 50px;
+    margin-left: 20px;
     background-color: var(--color-red);
     color:white;
     font-family: 'Fira sans';
