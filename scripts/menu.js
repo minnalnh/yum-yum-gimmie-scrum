@@ -1,10 +1,14 @@
-import { fetchFood } from "./modules/api.js";
+import { fetchFood } from "./modules/api.js"
 
+// hämtar section elementet från htmlen
 const menuHeader = document.querySelector('.menu');
+// testade med denna helt värdelös
 const localArray = []
+//Fetchar food från jespers api
 const food = await fetchFood();
 console.log(food);
 
+// Funktion som bygger upp wontonmenyn
     function renderWonton(food) {
     let menuHtml__wonton = ""; 
 
@@ -13,16 +17,22 @@ console.log(food);
         <article class="menu__card" data-id="${food.items[i].id}"> 
             <p class="menu__cardHeader">
                 <span>${food.items[i].name}</span> 
-                <span class="test">99kr</span>
+                <span class="test">${food.items[i].price}kr</span>
             </p>
             <p class="menu__cardIngredients">
                 ${food.items[i].ingredients}
             </p>
             <section class="menu__cardHidden menu__cardHidden${food.items[i].id} d-none"> 
-                <button class="menu__cardDelete">-</button> 
-                <p class="menu__cardQuantity">0</p> 
-                <button class="menu__cardAdd">+</button> 
-                <button type="button" class="menu__cardBuy__button"> 
+                <button aria-label="Ta bort rätt från beställning" class="menu__cardDelete">
+                    -
+                </button> 
+                <p class="menu__cardQuantity">
+                    0
+                </p> 
+                <button aria-label="Lägg till rätt i beställning" class="menu__cardAdd">
+                    +
+                </button> 
+                <button aria-label="Lägg till i varukorgen" type="button" class="menu__cardBuy__button"> 
                     Lägg till i varukorg 
                 </button>
             </section>
@@ -34,38 +44,70 @@ console.log(food);
 }
 
 renderWonton(food);
-
+// Funktion som bygget upp drinkmenyn först byggde jag det på ett helt annat sätt för jag är dum :) kolla längst ner.
 function renderDrinks(food){
     
     let menuHtml__drinks = "";
     for( let i = 11; i < 17; i++){
     
         menuHtml__drinks += `
-        <article class="menu__card" data-id="${food.items[i].id}"> 
-            <p class="menu__cardHeader">
-                <span>${food.items[i].name}</span> 
-                <span class="test">99kr</span>
-            </p>
-            <section class="menu__cardHidden menu__cardHidden${i + 1} d-none"> 
-                <button class="menu__cardDelete">
-                    -
-                </button> 
-                <p class="menu__cardQuantity">
-                    0
-                </p> 
-                <button class="menu__cardAdd">
-                    +
-                </button> 
-                <button class="menu__cardBuy__button"> 
-                    Lägg till i varukorg 
-                </button>
-            </section>
-        </article>
-        `;
+            <article class="menu__card" data-id="${food.items[i].id}"> 
+                <p class="menu__cardHeader">
+                    <span>${food.items[i].name}</span> 
+                    <span class="test">${food.items[i].price}kr</span>
+                </p>
+                <section class="menu__cardHidden menu__cardHidden${i + 1} d-none"> 
+                    <button aria-label="Ta bort dryck från beställning" class="menu__cardDelete">
+                        -
+                    </button> 
+                    <p class="menu__cardQuantity">
+                        0
+                    </p> 
+                    <button aria-label="Lägg till dryck i beställning" class="menu__cardAdd">
+                        +
+                    </button> 
+                    <button aria-label="Lägg till i varukorg" class="menu__cardBuy__button"> 
+                        Lägg till i varukorg 
+                    </button>
+                </section>
+            </article>
+            `;
 }
 menuHeader.innerHTML = menuHtml__drinks;
 }
-/*Funktion för att få knapparna att lysa med en ram runt sig vilket meny val du är inne på*/
+
+
+function renderDip(food){
+    
+    let menuHtml__dip = "";
+    for( let i = 5; i < 11; i++){
+    
+        menuHtml__dip += `
+            <article class="menu__card" data-id="${food.items[i].id}"> 
+                <p class="menu__cardHeader">
+                    <span>${food.items[i].name}</span> 
+                    <span class="test">${food.items[i].price}kr</span>
+                </p>
+                <section class="menu__cardHidden menu__cardHidden${i + 1} d-none"> 
+                    <button aria-label="Ta bort dryck från beställning" class="menu__cardDelete">
+                        -
+                    </button> 
+                    <p class="menu__cardQuantity">
+                        0
+                    </p> 
+                    <button aria-label="Lägg till dryck i beställning" class="menu__cardAdd">
+                        +
+                    </button> 
+                    <button aria-label="Lägg till i varukorg" class="menu__cardBuy__button"> 
+                        Lägg till i varukorg 
+                    </button>
+                </section>
+            </article>
+            `;
+}
+menuHeader.innerHTML = menuHtml__dip;
+}
+// Funktion för att få knapparna att lysa med en ram runt sig vilket meny val du är inne på
 function activeButton(event){
     const buttons = document.querySelectorAll('.menuHeaders__button');
 
@@ -90,6 +132,10 @@ document.querySelector('.menuHeaders__button--test2').addEventListener('click', 
     renderDrinks(food)
 })
 
+document.querySelector('.menuHeaders__button--test3').addEventListener('click', () =>{
+    renderDip(food)
+})
+
 const test = document.querySelector('.menu');
 
 console.log(test)
@@ -108,26 +154,26 @@ console.log(test)
 // )
 
 document.querySelector('.menu').addEventListener('click', (event) => {
-    const target = event.target;
+    const target = event.target; // Det element som klickades på
     const card = target.closest('.menu__card'); // Hitta kortet vi klickade i
     
-    if (!card) return; // Om vi klickade helt utanför ett kort, gör inget
+    if (!card) return; // Om vi klickade helt utanför kortet, gör det inget
 
-    // --- LOGIK FÖR ATT VISA/DÖLJA KORT (Din gamla logik) ---
+    // samma som min gamla fast förbättrad
     if (target.dataset.id) {
-        document.querySelectorAll('.menu__cardHidden').forEach(c => c.classList.add('d-none'));
+        document.querySelectorAll('.menu__cardHidden').forEach(card => card.classList.add('d-none'));
         const id = target.dataset.id;
         document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
     }
 
-    // --- LOGIK FÖR PLUS-KNAPPEN ---
+    //  När man klickar på plus knappen ökar antalet man ska beställa
     if (target.classList.contains('menu__cardAdd')) {
         const quantityEl = card.querySelector('.menu__cardQuantity');
         let currentAmount = parseInt(quantityEl.innerText);
         quantityEl.innerText = currentAmount + 1;
     }
 
-    // --- LOGIK FÖR MINUS-KNAPPEN ---
+    // När man klickar på minus knappen minskar antalet man ska beställa
     if (target.classList.contains('menu__cardDelete')) {
         const quantityEl = card.querySelector('.menu__cardQuantity');
         let currentAmount = parseInt(quantityEl.innerText);
@@ -136,30 +182,37 @@ document.querySelector('.menu').addEventListener('click', (event) => {
         }
     }
 
-    // --- LOGIK FÖR KÖPKNAPPEN (Skapa objektet!) ---
+    // Detta skapar objectet fick hjälp av youtube och guiding av ai.
     if (target.classList.contains('menu__cardBuy__button')) {
         const amount = parseInt(card.querySelector('.menu__cardQuantity').innerText);
         
+        //Min lösning 
+        const dataId = card.dataset.id;
+        const findPrice = food.items.find(item => item.id == dataId);
+        console.log(findPrice);
+
+        // fick hjälp med name delen och amount
         if (amount > 0) {
-            const orderItem = {
+            const orderedItems = {
                 id: card.dataset.id,
                 name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
-                price: 99, // Du kan hämta detta dynamiskt sen
+                price: findPrice.price, // Du kan hämta detta dynamiskt sen
                 quantity: amount
             };
             
-            // const localArray = []
-
-            const test = orderItem.name
+            //Min lösning igen // lägger in beställningen i local storage så att man kan hämta den vid senare tillfälle
 
             console.log(localArray)
+            
+            const fullOrder = JSON.parse(localStorage.getItem("orderedItems")) || [];
+            fullOrder.push(orderedItems);
+            localStorage.setItem("orderedItems",JSON.stringify(fullOrder));
 
-            return localArray.push(orderItem);
-            console.log("Skickar paket:", localArray);
-            // Här kan du anropa funktionen som tar emot objektet!
+            return localArray.push(orderedItems);
         }
     }
 });
+
 
 
     // const menuHtml__wonton = `
