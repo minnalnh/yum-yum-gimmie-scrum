@@ -1,13 +1,15 @@
 import { getElement } from '../utils/domUtils.js';
 
-const navIconRef = getElement('#menuIcon');
-const closeIconRef = getElement('#closeIcon');
-const navRef = getElement('.nav');
+const menuBtnRef = getElement('#menuBtn');
+const closeBtnRef = getElement('#closeBtn');
+const menuRef = getElement('.menu');
 
-navIconRef.addEventListener('click', () => {
-    navRef.classList.remove('d-none');
+menuBtnRef.addEventListener('click', () => {
+    menuRef.classList.toggle('open');
+    menuBtnRef.classList.toggle('v-hidden');
 })
 
-closeIconRef.addEventListener('click', () => {
-    navRef.classList.add('d-none');
+closeBtnRef.addEventListener('click', () => {
+    menuRef.classList.toggle('open');
+    menuBtnRef.classList.toggle('v-hidden');
 });

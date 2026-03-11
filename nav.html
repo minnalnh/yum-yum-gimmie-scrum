@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Navigation Menu</title>
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/nav.css">
     <script type="module" src="./scripts/modules/gui.js"></script>
@@ -11,20 +11,20 @@
 <body>
     <div class="wrapper wrapper--greenleaf">
         <header class="header">
-            <img class="header__icon" id="menuIcon" src="./resources/icons/menu-icon.svg" alt="menu">
-            <img class="header__icon" id="cartIcon" src="./resources/icons/cart-icon.svg" alt="cart">
+            <img class="header__icon" id="menuBtn" src="./resources/icons/menu-icon.svg" alt="Menyknapp">
+            <img class="header__icon" id="cartBtn" src="./resources/icons/cart-icon.svg" alt="Varukorgsknapp">
 
-            <nav class="nav">
-                <section class="nav__img-container">
-                    <img src="./resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeIcon">
-                    <img src="./resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp">
+            <nav class="menu">
+                <section class="menu__img-container">
+                    <img src="./resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="menu__icon" id="closeBtn">
+                    <img src="./resources/icons/YYGS_logo_outline.svg" class="menu__logo" alt="Yum Yum Gimmie Sum:s logotyp">
                 </section>
-                <ul class="nav__list">
-                    <li class="nav__item">Profil</li><hr class="nav__line">
-                    <li class="nav__item">Meny</li><hr class="nav__line">
-                    <li class="nav__item">Vart är vi</li><hr class="nav__line">
-                    <li class="nav__item">Om oss</li><hr class="nav__line">
-                    <li class="nav__item">Kontakta oss</li><hr class="nav__line">
+                <ul class="menu__list">
+                    <li class="menu__item"><a href="profile.html"></a>Profil</li><hr class="menu__line">
+                    <li class="menu__item"><a href="menu.html"></a>Meny</li><hr class="menu__line">
+                    <li class="menu__item"><a href="location.html"></a>Vart är vi</li><hr class="menu__line">
+                    <li class="menu__item"><a href="about.html"></a>Om oss</li><hr class="menu__line">
+                    <li class="menu__item"><a href="contact.html"></a>Kontakta oss</li><hr class="menu__line">
                 </ul>
             </nav>
         </header>
