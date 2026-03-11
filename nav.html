@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Confirmation</title>
+    <title>Navigation Menu</title>
     <link rel="stylesheet" href="./styles/base.css">
-    <!-- <link rel="stylesheet" href="./styles/location.css"> -->
-    <link rel="stylesheet" href="./styles/order-status.css">
     <link rel="stylesheet" href="./styles/nav.css">
-    <script type="module" src="./scripts/order-status.js"></script>
+    <script type="module" src="./scripts/modules/gui.js"></script>
 </head>
 <body>
-    <div class="wrapper wrapper--grey">
-    <header class="header">
+    <div class="wrapper wrapper--greenleaf">
+        <header class="header">
             <img class="header__icon" id="menuBtn" src="./resources/icons/menu-icon.svg" alt="Menyknapp">
-            <img class="header__icon" id="cartBtn" src="./resources/icons/close-icon.svg" alt="close">
+            <img class="header__icon" id="cartBtn" src="./resources/icons/cart-icon.svg" alt="Varukorgsknapp">
 
             <nav class="menu">
                 <section class="menu__img-container">
@@ -30,15 +28,6 @@
                 </ul>
             </nav>
         </header>
-    <section class="orderStatus">
-        <img class="orderStatus__img" src="./resources/images/box.png" alt="box with logo">
-        <h1 class="orderStatus__title" >Dina Wontons Tillagas!</h1>
-        <h2 class="orderStatus__subtitle">ETA 5 min</h2>
-        <p class="orderStatus__description" >#4KJWSDF234K</p>
-        <section class="btn__section">
-            <button class="btn btn--red btn--down">Visa order</button>
-        </section>
-    </section>
     </div>
 </body>
 </html>
