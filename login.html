@@ -3,9 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Log in</title>
+		<title>Logga in</title>
 		<link rel="stylesheet" href="./styles/base.css" />
 		<link rel="stylesheet" href="./styles/login-register.css" />
+		<!-- SKA VÄL BARA HA SCRIPT.JS SEN NÄR ALLT ÄR KLAR VÄL? -->
+		<script type="module" src="./scripts/modules/loginUser.js"></script>
+		<script type="module" src="./scripts/script.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--greenleaf">
@@ -15,14 +18,14 @@
 			<section class="form-container">
 				<form class="form" id="loginForm">
 					<div class="form__group">
-						<label for="emailInput" class="form__label">E-post</label>
-						<input type="email" class="form__input" id="emailInput" placeholder="exempel@exempel.se" />
+						<label for="loginEmail" class="form__label">E-post<span class="error-msg" id="emailError"></span></label>
+						<input type="email" class="form__input" id="loginEmail" placeholder="exempel@exempel.se" />
 					</div>
 					<div class="form__group">
-						<label for="passwordInput" class="form__label">Lösenord</label>
-						<input type="password" class="form__input" id="passwordInput" placeholder="••••••••••" />
+						<label for="loginPassword" class="form__label">Lösenord<span class="error-msg" id="passwordError"></span></label>
+						<input type="password" class="form__input" id="loginPassword" placeholder="••••••••••" />
 					</div>
-					<button type="submit" class="btn btn--red">Logga in</button>
+					<button type="submit" class="btn btn--red" id="loginBtn">Logga in</button>
 					<a href="./register.html" class="btn btn--grey" id="goToRegister">Skapa konto</a>
 				</form>
 			</section>
