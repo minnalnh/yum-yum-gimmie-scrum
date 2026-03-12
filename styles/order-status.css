@@ -15,7 +15,7 @@
 .orderStatus{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     flex-direction: column;
     height: 100%;
     flex: 1;
