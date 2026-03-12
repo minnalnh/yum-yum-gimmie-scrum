@@ -37,6 +37,7 @@
 
 .wrapper--grey {
     background-color: var(--color-darkgrey);
+    overflow: hidden;
 }
 
 .btn {
