@@ -13,6 +13,7 @@
 	--color-grey: #605858;
 	--color-lightgrey: rgba(53, 49, 49, 0.25);
 	--color-white: #ffffff;
+	--color-off-white: #f4f3f1;
 }
 
 .wrapper {
@@ -21,9 +22,10 @@
 	padding: 1rem;
 	justify-content: center;
 	margin: 0 auto;
-	border: 1px solid black;
 	min-height: 100vh;
 	max-width: 480px;
+	/* OVERFLOW HIDDEN HÄR I BASE? ? ??? ? ?  ? ??  */
+	overflow: hidden;
 }
 
 .wrapper--greenleaf {

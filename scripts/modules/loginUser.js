@@ -39,7 +39,7 @@ export function loginUser() {
 			if (user) {
 				sessionStorage.setItem('activeUser', JSON.stringify(user));
 				console.log('Inloggning lyckades!');
-				window.location.href = '../index.html';
+				window.location.href = '../pages/menu.html';
 			}
 		}
 	});

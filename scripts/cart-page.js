@@ -3,17 +3,16 @@ import { getElement } from './utils/domUtils.js';
 displayOrder();
 
 function displayOrder() {
+	let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
+	const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
 
-    let fullOrder = JSON.parse(localStorage.getItem("orderedItems")) || [];
-    const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+	console.log(fullOrder);
 
-    console.log(fullOrder);
+	const menuRef = getElement('.menu');
+	let orderTemplate = '';
 
-    const menuRef = getElement('.menu');
-    let orderTemplate = '';
-
-    for(let i = 0; i < orderedItems.length; i++) {
-        orderTemplate = `
+	for (let i = 0; i < orderedItems.length; i++) {
+		orderTemplate = `
             <article class="order">
                 <p class="order__card">
                     <span class="order__name">${orderedItems[i].name}</span>
@@ -22,7 +21,6 @@ function displayOrder() {
                 </p>
             </article>
         `;
-        menuRef.innerHTML += orderTemplate;
-
-    }
+		menuRef.innerHTML += orderTemplate;
+	}
 }
