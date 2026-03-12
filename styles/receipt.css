@@ -3,7 +3,7 @@
     flex-direction: column;
     min-height: 65vh;
     background-color: var(--color-white);
-    margin-top: 5rem;
+    margin-top: 2rem;
     border-radius: 4px;
 }
 
@@ -71,4 +71,34 @@
     font-family: 'Fira Sans', sans-serif;
     font-size: 1rem;
     font-weight: 400;
+}
+
+.receipt__total{
+    display:flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--color-lightgrey);
+}
+
+.receipt__total__cost__textTotal{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.receipt__total__cost__textMoms{
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.receipt__total__value{
+    display:flex;
+    align-items: center;
+}
+
+.receipt__total__value__text{
+    font-size: 1.7rem;
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
 }

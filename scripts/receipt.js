@@ -22,3 +22,26 @@ orderList.forEach(order => {
         `;
     receipt.appendChild(listItem);  
 });
+
+// orderList.forEach(order =>{
+//     order.
+// })
+
+function CalculateTotalCost(orderList) {
+    let addedValue = 0;
+    for( let i = 0 ; i < orderList.length; i++){
+        let test = orderList[i].price * orderList[i].quantity;
+        console.log(test);
+        addedValue += test;
+        }
+        return addedValue;
+    }
+
+let addedValue = CalculateTotalCost(orderList)
+
+console.log(addedValue);
+
+let totalCost = document.querySelector('.receipt__total__value__text')
+
+totalCost.textContent = addedValue + " SEK";
+
