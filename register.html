@@ -3,9 +3,12 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Log in</title>
+		<title>Registrera användare</title>
 		<link rel="stylesheet" href="./styles/base.css" />
 		<link rel="stylesheet" href="./styles/login-register.css" />
+		<script type="module" src="./scripts/script.js"></script>
+		<!-- SKA VÄL BARA HA SCRIPT.JS SEN NÄR ALLT ÄR KLAR VÄL? -->
+		<script type="module" src="./scripts/modules/registerUser.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--greenleaf">
@@ -13,25 +16,30 @@
 				<img src="./resources/icons/logo.jpg" class="logo" alt="Yum Yum Gimme Some logotype" />
 			</header>
 			<section class="form-container">
+				<p class="form__confirmation d-none" id="accountRegConf">
+					Ditt konto har skapats.<br />
+					Vänligen logga in.
+				</p>
 				<form class="form" id="registerForm">
 					<div class="form__group">
-						<label for="nameInput" class="form__label">Namn</label>
-						<input type="text" class="form__input" id="regName" placeholder="Förnamn Efternamn" required />
+						<label for="regName" class="form__label">Namn<span class="error-msg" id="nameError"></span></label>
+						<input type="text" class="form__input" id="regName" placeholder="Förnamn Efternamn" />
 					</div>
 					<div class="form__group">
-						<label for="emailInput" class="form__label">E-post</label>
-						<input type="email" class="form__input" id="regEmail" placeholder="exempel@exempel.se" required />
+						<label for="regEmail" class="form__label">E-post<span class="error-msg" id="emailError"></span></label>
+						<input type="email" class="form__input" id="regEmail" placeholder="exempel@exempel.se" />
 					</div>
 					<div class="form__group">
-						<label for="passwordInput" class="form__label">Lösenord</label>
-						<input type="password" class="form__input" id="regPassword" placeholder="••••••••••" required />
+						<label for="regPassword" class="form__label">Lösenord<span class="error-msg" id="passwordError"></span></label>
+						<input type="password" class="form__input" id="regPassword" placeholder="••••••••••" />
 					</div>
 					<div class="form__group">
-						<label for="passwordInput" class="form__label">Upprepa lösenord</label>
-						<input type="password" class="form__input" id="regRepeatPassword" placeholder="••••••••••" required />
+						<label for="regRepeatPassword" class="form__label">Upprepa lösenord<span class="error-msg" id="passwordRepeatError"></span></label>
+						<input type="password" class="form__input" id="regRepeatPassword" placeholder="••••••••••" />
 					</div>
-					<button class="btn btn--grey" id="createAccountBtn">Skapa konto</button>
+					<button type="submit" class="btn btn--grey" id="createAccountBtn">Skapa konto</button>
 				</form>
+				<a href="./pages/login.html" class="btn btn--red d-none" id="loginBtnRegPage">Logga in</a>
 			</section>
 		</div>
 	</body>
