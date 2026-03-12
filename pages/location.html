@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Location</title>
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/location.css" />
+		<link rel="stylesheet" href="../styles/nav.css" />
+		<script type="module" src="../scripts/location.js"></script>
+		<script type="module" src="../scripts/modules/gui.js"></script>
+	</head>
+	<body>
+		<div class="wrapper wrapper--greenleaf">
+			<!-- <header class="header">
+				<img class="header__icon" src="../resources/icons/menu-icon.svg" alt="menu" />
+				<img class="header__icon" src="../resources/icons/cart-icon.svg" alt="cart" />
+			</header> -->
+			<header class="header">
+				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
+				<!-- rätt länkat? -->
+				<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+				<nav class="nav">
+					<section class="nav__img-container">
+						<img src="../resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeBtn" />
+						<img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" />
+					</section>
+					<ul class="nav__list">
+						<li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./about.html">Om oss</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./contact.html">Kontakta oss</a></li>
+						<hr class="nav__line" />
+					</ul>
+				</nav>
+			</header>
+			<section class="card">
+				<h1 class="card__title">Välj foodtruck</h1>
+				<img class="card__img" src="../resources/images/map.jpg" alt="map" />
+				<section class="card__text-section">
+					<section class="card__text-row card__text">
+						<h2 class="card__subtitle">Stadsparken</h2>
+						<h3 class="card__distance">100 m</h3>
+					</section>
+					<p class="card__description">Stadsparksgatan 1, Karlstad</p>
+				</section>
+				<section class="card__text-section">
+					<section class="card__text-row">
+						<h2 class="card__subtitle">Stora torget</h2>
+						<h3 class="card__distance">1 km</h3>
+					</section>
+					<p class="card__description">Stora torget 1, Karlstad</p>
+				</section>
+			</section>
+			<section class="btn-section">
+				<a href="/pages/menu.html" class="btn btn--red card__btn">Gå till menyn</a>
+			</section>
+		</div>
+	</body>
+</html>
