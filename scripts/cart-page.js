@@ -36,17 +36,12 @@ function displayOrder() {
 }
 
 function calcTotalPrice(fullOrder) {
-    const priceArr = [];
     let sum = 0;
     let priceTimesQuantity = 0;
     
-    for(let order of fullOrder) {
+    for(let i = 0; i < fullOrder.length; i++) {
         priceTimesQuantity = order.price * order.quantity;
-        priceArr.push(priceTimesQuantity);
-    }
-    
-    for(let i = 0; i < priceArr.length; i++) {
-        sum += priceArr[i];    
+        sum += priceTimesQuantity;    
     }
     return sum;
 }
