@@ -3,7 +3,7 @@ import { getElement } from '../utils/domUtils.js';
 const wrapperRef = getElement('.wrapper');
 const menuBtnRef = getElement('#menuBtn');
 const closeBtnRef = getElement('#closeBtn');
-const menuRef = getElement('.menu');
+const menuRef = getElement('.nav');
 
 menuBtnRef.addEventListener('click', () => {
     menuRef.classList.add('open');
