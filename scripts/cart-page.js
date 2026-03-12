@@ -3,9 +3,8 @@ import { getElement } from './utils/domUtils.js';
 displayOrder();
 
 function displayOrder() {
-
-    let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
-    const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+	let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
+	const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
 
     const menuRef = getElement('.menu');
     const totalRef = getElement('.total');
