@@ -43,9 +43,7 @@
 	border-radius: 3px;
 	justify-self: center;
 	margin-top: 10px;
-	/* padding-top: 0px; */
 	padding: 0 20px 50px 20px;
-	/* padding-bottom: 50px; */
 }
 
 .center {
@@ -68,7 +66,7 @@
 	align-items: baseline;
 	font-weight: 700;
 	margin-top: 30px;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	pointer-events: none;
 }
 
