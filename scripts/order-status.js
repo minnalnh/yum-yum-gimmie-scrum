@@ -4,16 +4,15 @@ console.log ("hello från js");
 
 
 
-// const iconClose = getElement(".header__icon--close"); 
+const iconClose = getElement(".header__icon--close"); 
 
-// iconClose.addEventListener("click", (e) => {
-//     const ikonC = e.target.closest("iconClose");
+iconClose.addEventListener("click", (e) => {
+    const ikonC = e.target.closest("iconClose");
     
-//         window.location.href ="menu.html"
-//         console.log("klick");
+        window.location.href ="menu.html"
+        console.log("klick");
         
-//     return;
-// })
+})
 
 // const iconMenu = getElement(".header__icon--menu"); 
 
