@@ -204,8 +204,17 @@ document.querySelector('.menu').addEventListener('click', (event) => {
 
             console.log(localArray)
             
-            const fullOrder = JSON.parse(localStorage.getItem("orderedItems")) || [];
-            fullOrder.push(orderedItems);
+            let fullOrder = JSON.parse(localStorage.getItem("orderedItems")) || [];
+
+            const existingItem = fullOrder.find(item => item.id === orderedItems.id);
+
+            if(existingItem) {
+                existingItem.quantity += orderedItems.quantity;
+
+            } else {
+                fullOrder.push(orderedItems);
+            }
+
             localStorage.setItem("orderedItems",JSON.stringify(fullOrder));
 
             return localArray.push(orderedItems);
