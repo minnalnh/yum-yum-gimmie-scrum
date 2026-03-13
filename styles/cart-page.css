@@ -17,13 +17,6 @@
     flex-direction: column;
 }
 
-.menuHeaders{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
 .menu-wrapper {
 	background-color: var(--color-off-white);
 }
@@ -64,11 +57,6 @@
 
 .total__price {
 	font-size: 2rem;
-}
-
-.center {
-	display: flex;
-	justify-content: center;
 }
 
 .menu__card {

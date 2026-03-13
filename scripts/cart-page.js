@@ -3,8 +3,9 @@ import { getElement } from './utils/domUtils.js';
 displayOrder();
 
 function displayOrder() {
-	let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
-	const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+
+    let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
+    const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
 
     const menuRef = getElement('.menu');
     const totalRef = getElement('.total');
@@ -35,12 +36,17 @@ function displayOrder() {
 }
 
 function calcTotalPrice(fullOrder) {
+    const priceArr = [];
     let sum = 0;
     let priceTimesQuantity = 0;
     
-    for(let i = 0; i < fullOrder.length; i++) {
+    for(let order of fullOrder) {
         priceTimesQuantity = order.price * order.quantity;
-        sum += priceTimesQuantity;    
+        priceArr.push(priceTimesQuantity);
+    }
+    
+    for(let i = 0; i < priceArr.length; i++) {
+        sum += priceArr[i];    
     }
     return sum;
 }
