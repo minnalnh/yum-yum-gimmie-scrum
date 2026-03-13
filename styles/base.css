@@ -17,14 +17,11 @@
 }
 
 .wrapper {
-	/* display: flex;
-    flex-direction: column; */
 	padding: 1rem;
 	justify-content: center;
 	margin: 0 auto;
 	min-height: 100vh;
 	max-width: 480px;
-	/* OVERFLOW HIDDEN HÄR I BASE? ? ??? ? ?  ? ??  */
 	overflow: hidden;
 }
 
