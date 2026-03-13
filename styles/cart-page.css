@@ -19,7 +19,7 @@
 }
 
 .menuHeaders__button {
-	width: 130px;
+	width: 120px;
 	height: 60px;
 	margin: 1px;
 	background-color: var(--color-grey);
@@ -35,15 +35,36 @@
 	border: 2px solid white;
 }
 
+.menu-wrapper {
+	background-color: var(--color-off-white);
+}
+
 .menu {
 	display: flex;
 	flex-direction: column;
-	/* min-height: 82vh; */
-	background-color: #f4f3f1;
+	min-height: 50vh;
 	border-radius: 3px;
 	justify-self: center;
-	margin-top: 10px;
-	padding: 0 20px 50px 20px;
+	margin-top: 5px;
+	padding: 10px;
+}
+
+.total {
+	display: flex;
+	justify-content: space-between;
+	background-color: var(--color-lightgrey);
+	padding: 1.25rem 1rem;
+	font-family: 'Fira Sans', sans-serif;
+	margin-bottom: 3rem;
+}
+
+.total__text {
+	font-size: 1.4rem;
+	margin-top: 0.5rem;
+}
+
+.total__price {
+	font-size: 2rem;
 }
 
 .center {
@@ -66,7 +87,7 @@
 	align-items: baseline;
 	font-weight: 700;
 	margin-top: 30px;
-	font-size: 1.8rem;
+	font-size: 2rem;
 	pointer-events: none;
 }
 
