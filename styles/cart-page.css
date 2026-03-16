@@ -11,10 +11,28 @@
 	cursor: pointer;
 }
 
-.wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.menuHeaders {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.menuHeaders__button {
+	width: 120px;
+	height: 60px;
+	margin: 1px;
+	background-color: var(--color-grey);
+	border: none;
+	font-size: 1.5rem;
+	font-family: 'PT Serif', serif;
+	text-shadow: 0.68px 0.68px 1.36px rgba(0, 0, 0, 0.25);
+	color: white;
+}
+
+.menuHeaders__button--active {
+	background-color: var(--color-red);
+	border: 2px solid white;
 }
 
 .menu-wrapper {
@@ -59,6 +77,11 @@
 	font-size: 2rem;
 }
 
+.center {
+	display: flex;
+	justify-content: center;
+}
+
 .menu__card {
 	display: flex;
 	flex-direction: column;
@@ -66,11 +89,86 @@
 	min-width: 350px;
 }
 
-.d-none{
-    display: none;
+.menu__cardHeader {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 1;
+	font-family: 'Fira sans';
+	align-items: baseline;
+	font-weight: 700;
+	margin-top: 30px;
+	font-size: 2rem;
+	pointer-events: none;
 }
 
-.btn {
-    display: block;
-    margin-top: auto;
+/*Ai hjälpte mig med denna after eller ja föreslog det som ett bättre alternativ till vad jag hade.*/
+.menu__cardHeader::after {
+	content: '';
+	flex-grow: 1;
+	border-bottom: 3px dotted #000;
+	margin: 0 10px;
+	height: 0.7em;
+}
+
+.test {
+	order: 2;
+}
+
+.menu__cardIngredients {
+	font-size: 1rem;
+	font-family: 'Fira sans';
+	font-weight: 600;
+	pointer-events: none;
+}
+
+.menu__cardHidden {
+	display: flex;
+	font-size: 1.5rem;
+	font-family: 'Fira sans';
+	font-weight: 700;
+	padding-top: 10px;
+}
+
+.menu__cardQuantity {
+	border: 4px solid black;
+	align-self: center;
+	padding: 4px 8px 4px 8px;
+	border-radius: 5px;
+	flex-grow: 0;
+	width: 60px;
+	text-align: center;
+}
+
+.menu__cardAdd {
+	border: none;
+	padding-right: 20px;
+	align-self: center;
+	padding-left: 20px;
+	font-size: 2rem;
+}
+
+.menu__cardDelete {
+	border: none;
+	padding-right: 20px;
+	align-self: center;
+	padding-bottom: 4px;
+	padding-left: 20px;
+	font-size: 2.5rem;
+}
+
+.menu__card-update-button {
+	margin-left: 20px;
+	background-color: var(--color-red);
+	color: white;
+	font-family: 'Fira sans';
+	font-size: 1rem;
+	font-weight: 500;
+	height: 50px;
+	border-radius: 12px;
+	border: none;
+	width: 50%;
+}
+
+.d-none {
+	display: none;
 }
