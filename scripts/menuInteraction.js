@@ -1,4 +1,5 @@
 import { fetchFood } from './modules/api.js';
+import { getElement } from './utils/domUtils.js';
 
 const localArray = [];
 //Fetchar food från jespers api
@@ -14,8 +15,12 @@ export function menuInteraction(event) {
 	if (target.dataset.id) {
 		document.querySelectorAll('.menu__cardHidden').forEach((card) => card.classList.add('d-none'));
 		const id = target.dataset.id;
+        console.log(event.target);
         console.log(id);
+        
 		document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
+
+        document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
 	}
 
 	//  När man klickar på plus knappen ökar antalet man ska beställa
@@ -73,42 +78,53 @@ export function menuInteraction(event) {
 	}
 
     if (target.classList.contains('menu__card-update-button')) {
+        const oldAmount = parseInt(card.querySelector('.order__quantity').innerText);
 		const newAmount = parseInt(card.querySelector('.menu__cardQuantity').innerText);
+        let updatedAmount = 0;
+        const orderQuantityRef = card.querySelector('.order__quantity');
         
-        let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
-
-        for(let order of fullOrder) {
-            console.log(newAmount); // funkar
-        }
-
-
 		const dataId = card.dataset.id;
 		const findPrice = food.items.find((item) => item.id == dataId);
-		console.log(findPrice);
+        const price = findPrice.price;
+        
+        if(oldAmount > newAmount && newAmount !== 0) {
+            updatedAmount = oldAmount - newAmount;
+            
+        } else if(newAmount > oldAmount) {
+            updatedAmount = newAmount - oldAmount;
+            
+        } else if(newAmount === 0) {
+            let orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+            orderedItems = orderedItems.filter(order => order.id !== dataId);
+            localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
+            location.reload();
+        }
 
-		if (amount > 0) {
+        const newPrice = price * newAmount; // få in detta i totala priset i cart-page.js
+
+		if (newAmount > 0) {
 			const orderedItems = {
 				id: card.dataset.id,
 				name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
 				price: findPrice.price,
-				quantity: amount,
+				quantity: newAmount,
 			};
 
-			console.log(localArray);
-
 			let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
-
+            
 			const existingItem = fullOrder.find((item) => item.id === orderedItems.id);
-
+            
 			if (existingItem) {
-				existingItem.quantity += orderedItems.quantity;
+                existingItem.quantity = orderedItems.quantity;
 			} else {
-				fullOrder.push(orderedItems);
+                fullOrder.push(orderedItems);
 			}
-
+            
 			localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
-
+            
+            orderQuantityRef.innerText = `${newAmount} stycken`;
 			return localArray.push(orderedItems);
 		}
+        
 	}
 }

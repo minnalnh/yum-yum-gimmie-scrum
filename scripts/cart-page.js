@@ -5,9 +5,9 @@ const menuRef = getElement('.menu');
 displayOrder();
 
 function displayOrder() {
-
     let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
     const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+
 
     const totalRef = getElement('.total');
     let orderTemplate = '';
@@ -21,7 +21,7 @@ function displayOrder() {
                     <span>${orderedItems[i].price} kr</span>
                 </p>
                 <p class="order__quantity">${orderedItems[i].quantity} stycken</p>
-                <section class="menu__cardHidden menu__cardHidden${i + 1} d-none"> 
+                <section> 
                     <button aria-label="Ta bort produkt från beställning" class="menu__cardDelete">
                         -
                     </button> 
@@ -66,29 +66,17 @@ function calcTotalPrice(fullOrder) {
 }
 
 menuRef.addEventListener('click', menuInteraction);
+
 /*
-<article class="menu__card" data-id="${food.items[i].id}"> 
-            <p class="menu__cardHeader">
-                <span>${food.items[i].name}</span> 
-                <span class="test">${food.items[i].price} kr</span>
-            </p>
-            <p class="menu__cardIngredients">
-                ${food.items[i].ingredients.join(', ')} 
-            </p>
-            <section class="menu__cardHidden menu__cardHidden${food.items[i].id} d-none"> 
-                <button aria-label="Ta bort rätt från beställning" class="menu__cardDelete">
-                    -
-                </button> 
-                <p class="menu__cardQuantity">
-                    0
-                </p> 
-                <button aria-label="Lägg till rätt i beställning" class="menu__cardAdd">
-                    +
-                </button> 
-                <button aria-label="Lägg till i varukorgen" type="button" class="menu__cardBuy__button"> 
-                    Lägg till i varukorg 
-                </button>
-            </section>
-        </article>
-        `;
-    */
+const updButtonRefs = document.querySelectorAll('.menu__card-update-button');
+const menuCardQuantityRef = getElement('.menu__cardQuantity').innerText;
+
+const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+
+updButtonRefs.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        console.log(orderedItems[index].quantity);
+        console.log(menuCardQuantityRef);
+    });
+});
+*/
