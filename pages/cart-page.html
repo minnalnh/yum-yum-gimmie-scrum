@@ -9,12 +9,20 @@
 		<title>Yum Yum Gimmie Sum</title>
 		<script type="module" src="../scripts/cart-page.js"></script>
 		<script type="module" src="../scripts/modules/gui.js"></script>
+		<script type="module" src="../scripts/script.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--grey">
 			<header class="header">
 				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
-				<img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" />
+
+				<!-- CART BADGE / COUNTER -->
+				<section class="cart-container">
+					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+					<div class="header__count-icon d-none" id="cartCountContainer">
+						<p class="header__count-number" id="cartCount"></p>
+					</div>
+				</section>
 
 				<nav class="nav">
 					<section class="nav__img-container">

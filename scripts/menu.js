@@ -1,4 +1,7 @@
 import { fetchFood } from './modules/api.js';
+import { cartCounter } from './modules/gui.js';
+
+cartCounter();
 
 // hämtar section elementet från htmlen
 const menuHeader = document.querySelector('.menu');
@@ -27,7 +30,7 @@ function renderWonton(food) {
                     -
                 </button> 
                 <p class="menu__cardQuantity">
-                    0
+                    1
                 </p> 
                 <button aria-label="Lägg till rätt i beställning" class="menu__cardAdd">
                     +
@@ -59,7 +62,7 @@ function renderDrinks(food) {
                         -
                     </button> 
                     <p class="menu__cardQuantity">
-                        0
+                        1
                     </p> 
                     <button aria-label="Lägg till dryck i beställning" class="menu__cardAdd">
                         +
@@ -88,7 +91,7 @@ function renderDip(food) {
                         -
                     </button> 
                     <p class="menu__cardQuantity">
-                        0
+                        1
                     </p> 
                     <button aria-label="Lägg till dryck i beställning" class="menu__cardAdd">
                         +
@@ -209,6 +212,9 @@ document.querySelector('.menu').addEventListener('click', (event) => {
 			}
 
 			localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
+
+			// triggar cart counter badge:
+			cartCounter(true);
 
 			return localArray.push(orderedItems);
 		}

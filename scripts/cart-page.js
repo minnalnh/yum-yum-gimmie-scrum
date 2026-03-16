@@ -1,5 +1,7 @@
+import { cartCounter } from './modules/gui.js';
 import { getElement } from './utils/domUtils.js';
 
+cartCounter();
 displayOrder();
 
 function displayOrder() {
