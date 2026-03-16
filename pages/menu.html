@@ -10,13 +10,21 @@
 		<title>Yum Yum Gimmie Sum</title>
 		<script type="module" src="../scripts/menu.js"></script>
 		<script type="module" src="../scripts/modules/gui.js"></script>
+		<script type="module" src="../scripts/script.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--greenleaf">
 			<header class="header">
 				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
-				<!-- rätt länkat? -->
-				<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+
+				<!-- CART BADGE / COUNTER -->
+				<section class="cart-container">
+					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+					<div class="header__count-icon d-none" id="cartCountContainer">
+						<p class="header__count-number" id="cartCount"></p>
+					</div>
+				</section>
+
 				<nav class="nav">
 					<section class="nav__img-container">
 						<img src="../resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeBtn" />

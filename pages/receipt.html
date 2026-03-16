@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Yum Yum Gimmie Sum</title>
+		<link rel="stylesheet" href="../styles/base.css"/>
+        <link rel="stylesheet" href="../styles/nav.css">
+        <link rel="stylesheet" href="../styles/receipt.css">
+        <script type="module" src="../scripts/modules/gui.js"></script>
+        <script type="module" src="../scripts/receipt.js"></script>
+	</head>
+	<body>
+		<div class="wrapper wrapper--grey">
+			<header class="header">
+				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
+				<!-- rätt länkat? -->
+				<a href="./profile.html"> <img src="../resources/icons/close-icon.svg" alt="Stäng ner kvitto" class="nav__icon" id="closeBtn2" /> </a>
+				<nav class="nav">
+					<section class="nav__img-container">
+						<img src="../resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeBtn" />
+						<a href="../index.html" class="nav-index-link"><img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" /></a>
+					</section>
+					<ul class="nav__list">
+						<li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./about.html">Om oss</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./contact.html">Kontakta oss</a></li>
+						<hr class="nav__line" />
+					</ul>
+				</nav>
+			</header>
+            <article class="receipt">
+                <section class="receipt__info">
+                    <img class="receipt__img" src="../resources/icons/logo.jpg" alt="Yum Yum Gimmie Sum:s logotyp">
+                    <h1 class="receipt__heading">
+                        KVITTO
+                    </h1>
+                    <p class="receipt__orderCode">
+                        #4kjwsdf234k
+                    </p>
+                </section>
+                <ul class="receipt__list">
+                </ul>
+                <div class="receipt__total">
+                    <div class="receipt__total-cost"><p class="receipt__total-textTotal">TOTAL</p><p class="receipt__total-textMoms">inkl 20% moms</p></div>
+                    <div class="receipt__total-value"><p class="receipt__total-valueText"></p></div>
+                </div>
+            </article>
+		</div>
+	</body>
+</html>

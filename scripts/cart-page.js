@@ -1,3 +1,4 @@
+import { cartCounter } from './modules/gui.js';
 import { getElement } from './utils/domUtils.js';
 import { menuInteraction } from './menuInteraction.js';
 
@@ -14,6 +15,7 @@ if(fullOrder.length > 0) {
     emptyCartMsgRef.innerText = 'Din varukorg är tom';
     btnRef.classList.add('d-none');
 }
+cartCounter();
 
 function displayOrder() {
     let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
@@ -77,17 +79,3 @@ function calcTotalPrice(fullOrder) {
 }
 
 menuRef.addEventListener('click', menuInteraction);
-
-/*
-const updButtonRefs = document.querySelectorAll('.menu__card-update-button');
-const menuCardQuantityRef = getElement('.menu__cardQuantity').innerText;
-
-const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
-
-updButtonRefs.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        console.log(orderedItems[index].quantity);
-        console.log(menuCardQuantityRef);
-    });
-});
-*/
