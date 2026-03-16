@@ -1,7 +1,9 @@
+import { emptyCartMsg } from './emptyCartMsg.js';
 import { fetchFood } from './modules/api.js';
+import { cartCounter } from './modules/gui.js';
+import { updTotalPrice } from './updTotalPrice.js';
 import { getElement } from './utils/domUtils.js';
 
-const localArray = [];
 //Fetchar food från jespers api
 const food = await fetchFood();
 
@@ -15,10 +17,6 @@ export function menuInteraction(event) {
 	if (target.dataset.id) {
 		document.querySelectorAll('.menu__cardHidden').forEach((card) => card.classList.add('d-none'));
 		const id = target.dataset.id;
-        console.log(event.target);
-        console.log(id);
-        
-		document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
 
         document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
 	}
@@ -46,22 +44,15 @@ export function menuInteraction(event) {
 		//Min lösning
 		const dataId = card.dataset.id;
 		const findPrice = food.items.find((item) => item.id == dataId);
-		console.log(findPrice);
 
 		// fick hjälp med name delen och amount
 		if (amount > 0) {
-			const orderedItems = {
-				id: card.dataset.id,
-				name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
-				price: findPrice.price, // Du kan hämta detta dynamiskt sen
-				quantity: amount,
-			};
-
+			createOrder(card, findPrice, amount);
 			//Min lösning igen // lägger in beställningen i local storage så att man kan hämta den vid senare tillfälle
 
-			console.log(localArray);
-
 			let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
+
+			const orderedItems = createOrder(card, findPrice, amount);
 
 			const existingItem = fullOrder.find((item) => item.id === orderedItems.id);
 
@@ -73,39 +64,31 @@ export function menuInteraction(event) {
 
 			localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
 
-			return localArray.push(orderedItems);
+			cartCounter();
 		}
 	}
 
     if (target.classList.contains('menu__card-update-button')) {
-        const oldAmount = parseInt(card.querySelector('.order__quantity').innerText);
-		const newAmount = parseInt(card.querySelector('.menu__cardQuantity').innerText);
-        let updatedAmount = 0;
+		const amount = parseInt(card.querySelector('.menu__cardQuantity').innerText.split(' ')[0]);
         const orderQuantityRef = card.querySelector('.order__quantity');
         
-		const dataId = card.dataset.id;
+		const dataId = Number(card.dataset.id);
 		const findPrice = food.items.find((item) => item.id == dataId);
         
-        if(oldAmount > newAmount && newAmount !== 0) {
-            updatedAmount = oldAmount - newAmount;
-            
-        } else if(newAmount > oldAmount) {
-            updatedAmount = newAmount - oldAmount;
-            
-        } else if(newAmount === 0) {
+        if(amount === 0) {
             let orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
-            orderedItems = orderedItems.filter(order => order.id !== dataId);
+            orderedItems = orderedItems.filter(order => Number(order.id) !== dataId);
             localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
-            location.reload();
-        }
+			updTotalPrice();
+			card.remove();
 
-		if (newAmount > 0) {
-			const orderedItems = {
-				id: card.dataset.id,
-				name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
-				price: findPrice.price,
-				quantity: newAmount,
-			};
+			if(orderedItems.length === 0) {
+				const menuRef = getElement('.menu');
+				emptyCartMsg(menuRef);
+			}
+
+        } else if (amount > 0) {
+			const orderedItems = createOrder(card, findPrice, amount);
 
 			let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
             
@@ -119,9 +102,20 @@ export function menuInteraction(event) {
             
 			localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
             
-            orderQuantityRef.innerText = `${newAmount} stycken`;
-			return localArray.push(orderedItems);
+            orderQuantityRef.innerText = `${amount} stycken`;
+			updTotalPrice();
+            cartCounter();		
 		}
-        location.reload();
+
 	}
+}
+
+function createOrder(card, findPrice, amount) {
+	const orderedItems = {
+		id: card.dataset.id,
+		name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
+		price: findPrice.price,
+		quantity: amount,
+	};
+	return orderedItems;
 }

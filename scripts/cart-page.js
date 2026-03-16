@@ -1,6 +1,8 @@
 import { cartCounter } from './modules/gui.js';
 import { getElement } from './utils/domUtils.js';
 import { menuInteraction } from './menuInteraction.js';
+import { calcTotalPrice } from './calcTotalPrice.js';
+import { emptyCartMsg } from './emptyCartMsg.js';
 
 const menuRef = getElement('.menu');
 
@@ -8,14 +10,11 @@ let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
 
 if(fullOrder.length > 0) {
     displayOrder();
+    cartCounter();
 
-} else {
-    const emptyCartMsgRef = getElement('#emptyCartMsg');
-    const btnRef = getElement('.btn--red');
-    emptyCartMsgRef.innerText = 'Din varukorg är tom';
-    btnRef.classList.add('d-none');
+} else { // visa meddelande om att varukorgen är tom
+    emptyCartMsg(menuRef);
 }
-cartCounter();
 
 function displayOrder() {
     let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
@@ -24,7 +23,7 @@ function displayOrder() {
 
     const totalRef = getElement('.total');
     let orderTemplate = '';
-    let totalSumTemplate = '';
+    // let totalSumTemplate = '';
 
     for(let i = 0; i < orderedItems.length; i++) {
         orderTemplate = `
@@ -53,29 +52,12 @@ function displayOrder() {
         menuRef.innerHTML += orderTemplate;
     }
 
-    const totalSum = calcTotalPrice(fullOrder);
+    let totalSum = calcTotalPrice(fullOrder);
 
-        totalSumTemplate = `
-            <p class="total__text">Totalt</p>
-            <p class="total__price">${totalSum} kr</p>
-        `;
-        totalRef.innerHTML += totalSumTemplate;
+    totalRef.innerHTML = `
+        <p class="total__text">Totalt</p>
+        <p class="total__price">${totalSum} kr</p>
+    `;
+
 }
-
-function calcTotalPrice(fullOrder) {
-    const priceArr = [];
-    let sum = 0;
-    let priceTimesQuantity = 0;
-    
-    for(let order of fullOrder) {
-        priceTimesQuantity = order.price * order.quantity;
-        priceArr.push(priceTimesQuantity);
-    }
-    
-    for(let i = 0; i < priceArr.length; i++) {
-        sum += priceArr[i];    
-    }
-    return sum;
-}
-
 menuRef.addEventListener('click', menuInteraction);
