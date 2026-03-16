@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User page</title>
+	<link rel="stylesheet" href="../styles/nav.css" />
+	<link rel="stylesheet" href="../styles/base.css" />
+	<link rel="stylesheet" href="../styles/profile.css" />
+	<script type="module" src="../scripts/modules/gui.js"></script>
+	<script type="module" src="../scripts/profile.js"></script>
+</head>
+<body>
+    <div class="wrapper wrapper--grey">
+		<header class="header">
+            <img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp">
+            <a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+
+            <nav class="nav">
+					<section class="nav__img-container">
+						<img src="../resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeBtn" />
+						<!-- <img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" /> -->
+						<a href="../index.html" class="nav-index-link"><img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" /></a>
+					</section>
+					<ul class="nav__list">
+						<!-- <li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li> -->
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./about.html">Om oss</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./contact.html">Kontakta oss</a></li>
+						<hr class="nav__line" />
+					</ul>
+				</nav>
+        </header>
+		<section class="profile-section">
+			<img class="profile__img" src="../resources/icons/profile-pic.svg" alt="Din profilbild">
+			<h1 class="profile__name">Gimmie Yumson</h1>
+			<p class="profile__description" >gimmie.yumson@zocom.se</p>
+			<p class="profile__description">+46-666 666 66</p>
+		</section>
+		<!-- <section class="card">
+			<h2 class="card__subtitle">Orderhistorik</h2>
+			<h3 class="card__description" >#4kjwsdf234k</h3>
+			<h4 class="card__info">Karlstad</h4>
+			<p class="card__sek">27 SEK</p>
+			<p class="card__antal">3 stycken</p>
+			<h4 class="card__info">HO CHI MINH</h4>
+			<p class="card__sek">18 SEK</p>
+			<p class="card__antal">2 stycken</p>
+			<h4 class="card__info">KINGSTON</h4>
+			<p class="card__sek">18 SEK</p>
+			<p class="card__antal">2 stycken</p>
+			<h4 class="card__info">SWEET CHILI DIP</h4>
+			<p class="card__sek">19 SEK</p>
+			<p class="card__antal">1 stycken</p>
+		</section> -->
+		<section class="btn-section">
+			<button class="btn btn--red btn--down btnOrder">Visa orderhistorik</button>
+			<button class="btn btn--red btn--down btnKonto">Ändra kontoinställningar</button>
+		</section>
+
+	</div>
+</body>
+</html>
