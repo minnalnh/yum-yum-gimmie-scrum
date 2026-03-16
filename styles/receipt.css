@@ -80,25 +80,32 @@
     background-color: var(--color-lightgrey);
 }
 
-.receipt__total__cost__textTotal{
+.receipt__total-textTotal{
     font-size: 1.5rem;
     font-weight: bold;
     font-family: 'Fira Sans', sans-serif;
 }
 
-.receipt__total__cost__textMoms{
+.receipt__total-textMoms{
     font-size: 1rem;
     font-weight: 400;
     font-family: 'Fira Sans', sans-serif;
 }
 
-.receipt__total__value{
+.receipt__total-value{
     display:flex;
     align-items: center;
 }
 
-.receipt__total__value__text{
+.receipt__total-valueText{
     font-size: 1.7rem;
     font-weight: bold;
     font-family: 'Fira Sans', sans-serif;
+}
+
+#closeBtn2 {
+	width: 4rem;
+	padding: 1rem;
+	margin-left: 0.2rem;
+	cursor: pointer;
 }

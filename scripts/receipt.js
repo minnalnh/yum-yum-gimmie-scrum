@@ -41,7 +41,7 @@ let addedValue = CalculateTotalCost(orderList)
 
 console.log(addedValue);
 
-let totalCost = document.querySelector('.receipt__total__value__text')
+let totalCost = document.querySelector('.receipt__total-valueText')
 
 totalCost.textContent = addedValue + " SEK";
 
