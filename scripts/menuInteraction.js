@@ -85,7 +85,6 @@ export function menuInteraction(event) {
         
 		const dataId = card.dataset.id;
 		const findPrice = food.items.find((item) => item.id == dataId);
-        const price = findPrice.price;
         
         if(oldAmount > newAmount && newAmount !== 0) {
             updatedAmount = oldAmount - newAmount;
@@ -99,8 +98,6 @@ export function menuInteraction(event) {
             localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
             location.reload();
         }
-
-        const newPrice = price * newAmount; // få in detta i totala priset i cart-page.js
 
 		if (newAmount > 0) {
 			const orderedItems = {
@@ -125,6 +122,6 @@ export function menuInteraction(event) {
             orderQuantityRef.innerText = `${newAmount} stycken`;
 			return localArray.push(orderedItems);
 		}
-        
+        location.reload();
 	}
 }

@@ -2,7 +2,18 @@ import { getElement } from './utils/domUtils.js';
 import { menuInteraction } from './menuInteraction.js';
 
 const menuRef = getElement('.menu');
-displayOrder();
+
+let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
+
+if(fullOrder.length > 0) {
+    displayOrder();
+
+} else {
+    const emptyCartMsgRef = getElement('#emptyCartMsg');
+    const btnRef = getElement('.btn--red');
+    emptyCartMsgRef.innerText = 'Din varukorg är tom';
+    btnRef.classList.add('d-none');
+}
 
 function displayOrder() {
     let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
