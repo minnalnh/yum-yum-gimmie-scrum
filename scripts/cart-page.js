@@ -29,10 +29,10 @@ function displayOrder() {
             <article class="menu__card" data-id="${orderedItems[i].id}"> 
                 <p class="menu__cardHeader">
                     <span>${orderedItems[i].name}</span> 
-                    <span>${orderedItems[i].price} kr</span>
+                    <span class="element-order">${orderedItems[i].price} kr</span>
                 </p>
                 <p class="order__quantity">${orderedItems[i].quantity} stycken</p>
-                <section> 
+                <section class="menu__btn-section"> 
                     <button aria-label="Ta bort produkt från beställning" class="menu__cardDelete">
                         -
                     </button> 
@@ -42,7 +42,7 @@ function displayOrder() {
                     <button aria-label="Lägg till produkt i beställning" class="menu__cardAdd">
                         +
                     </button> 
-                    <button aria-label="Lägg till i varukorg" class="menu__card-update-button"> 
+                    <button aria-label="Lägg till i varukorg" class="menu__card-update-button btn--red"> 
                         Uppdatera varukorg 
                     </button>
                 </section>
@@ -55,7 +55,7 @@ function displayOrder() {
 
         totalSumTemplate = `
             <p class="total__text">Totalt</p>
-            <p class="total__price">${totalSum} sek</p>
+            <p class="total__price">${totalSum} kr</p>
         `;
         totalRef.innerHTML += totalSumTemplate;
 }
