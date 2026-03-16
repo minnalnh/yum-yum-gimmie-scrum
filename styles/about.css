@@ -1,6 +1,7 @@
 
 h1 {
     font-family: PT Serif;
+    font-size: 32px;
 }
 
 h2, h3, h4, p{
@@ -25,7 +26,7 @@ h2, h3, h4, p{
 }
 
 .card__description{
-    margin: 1.7rem 0rem 1.5rem 0rem;
+    margin: 1rem 0rem 1.5rem 0rem;
 }
 
 .card__img{
