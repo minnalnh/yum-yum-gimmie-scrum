@@ -33,8 +33,6 @@ wrapperRef.addEventListener('click', (event) => {
 //
 // cart badge counter:
 export function cartCounter(animate = false) {
-	console.log('in cartCounter()!');
-
 	const counter = getElement('#cartCount');
 	const container = getElement('#cartCountContainer');
 	const cart = JSON.parse(localStorage.getItem('orderedItems')) || [];
@@ -50,7 +48,6 @@ export function cartCounter(animate = false) {
 	removeClass(container, 'd-none');
 	counter.textContent = totalQuantity;
 	if (animate) {
-		console.log('aniation!!!');
 		removeClass(container, 'icon-pop');
 		void container.offsetWidth; // viktig rad
 		addClass(container, 'icon-pop');
