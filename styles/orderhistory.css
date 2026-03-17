@@ -1,0 +1,59 @@
+
+.card-title__section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0rem 0rem 0rem;
+}
+
+.btn--tillbaka{
+    width: 25%;
+    padding: .5rem;
+    
+}
+
+h1{
+    color: white;
+    font-family: pt serif;
+}
+
+h2, h3, h4, p, button{
+    font-family: fira sans;
+    color: var(--color-darkgrey);
+}
+
+.card__sek, .card__info{
+    font-weight: 700;
+}
+
+.card{
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    margin: 1rem 0rem 1rem 0rem;
+    padding: 1rem;
+}
+
+.card__date{
+    text-align: end;
+    font-size: 16px;
+    
+}
+
+.card__description{
+    margin: 1rem 0rem 1rem 0rem;
+    font-weight: 500;
+    
+}
+
+.card__produkt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+.card__antal{
+    margin: .1rem 0rem 1rem 0rem;
+    
+}
