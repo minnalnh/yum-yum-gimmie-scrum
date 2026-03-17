@@ -1,5 +1,5 @@
 import { fetchFood } from './modules/api.js';
-import { menuInteraction } from './menuInteraction.js';
+import { menuInteraction } from './modules/menuInteraction.js';
 import { cartCounter } from './modules/gui.js';
 
 cartCounter();
@@ -26,7 +26,7 @@ function renderWonton(food) {
             <p class="menu__cardIngredients">
                 ${food.items[i].ingredients.join(', ')} 
             </p>
-            <section class="menu__cardHidden menu__cardHidden${food.items[i].id} d-none"> 
+            <section class="menu__cardHidden menu__cardHidden${i + 1} d-none"> 
                 <button aria-label="Ta bort rätt från beställning" class="menu__cardDelete">
                     -
                 </button> 

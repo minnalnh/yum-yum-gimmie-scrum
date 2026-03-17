@@ -9,6 +9,16 @@
 	border-bottom-right-radius: 3px;
 }
 
+.icon-container {
+	width: 100%;
+}
+
+.header__icon--close {
+	margin-top: .25rem;
+	margin-right: -3rem;
+	cursor: pointer;
+}
+
 .empty-cart-msg {
 	font-family: 'Fira Sans', sans-serif;
 	text-align: center;
@@ -116,9 +126,19 @@
 	width: 50%;
 }
 
+.icon-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cart-container {
+	margin-top: 20rem;
+}
+
 .order__quantity {
 	font-family: 'Fira Sans', sans-serif;
 	margin: .2rem 0;
+	pointer-events: none;
 }
 
 .total {

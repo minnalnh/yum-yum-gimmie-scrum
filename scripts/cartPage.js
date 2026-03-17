@@ -1,44 +1,47 @@
 import { cartCounter } from './modules/gui.js';
 import { getElement } from './utils/domUtils.js';
-import { menuInteraction } from './menuInteraction.js';
-import { calcTotalPrice } from './calcTotalPrice.js';
-import { emptyCartMsg } from './emptyCartMsg.js';
+import { menuInteraction } from './modules/menuInteraction.js';
+import { calcTotalPrice } from './modules/calcTotalPrice.js';
+import { emptyCartMsg } from './modules/emptyCartMsg.js';
 
 const menuRef = getElement('.menu');
 
-let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
+function getOrder() {
+    return JSON.parse(localStorage.getItem('orderedItems')) || [];
+}
 
-if(fullOrder.length > 0) {
-    displayOrder();
-    cartCounter();
+orderSetup();
 
-} else { // visa meddelande om att varukorgen är tom
-    emptyCartMsg(menuRef);
+function orderSetup() {
+    const fullOrder = getOrder();
+
+    if(fullOrder.length > 0) {
+        displayOrder();
+        cartCounter();
+    
+    } else { // visa meddelande om varukorgen är tom
+        emptyCartMsg(menuRef);
+    }
 }
 
 function displayOrder() {
-    let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
-    const orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
-
-
+    const fullOrder = getOrder();
     const totalRef = getElement('.total');
-    let orderTemplate = '';
-    // let totalSumTemplate = '';
 
-    for(let i = 0; i < orderedItems.length; i++) {
-        orderTemplate = `
-            <article class="menu__card" data-id="${orderedItems[i].id}"> 
+    for(let i = 0; i < fullOrder.length; i++) {
+        const orderTemplate = `
+            <article class="menu__card" data-id="${fullOrder[i].id}"> 
                 <p class="menu__cardHeader">
-                    <span>${orderedItems[i].name}</span> 
-                    <span class="element-order">${orderedItems[i].price} kr</span>
+                    <span>${fullOrder[i].name}</span> 
+                    <span class="element-order">${fullOrder[i].price} kr</span>
                 </p>
-                <p class="order__quantity">${orderedItems[i].quantity} stycken</p>
+                <p class="order__quantity">${fullOrder[i].quantity} stycken</p>
                 <section class="menu__btn-section"> 
                     <button aria-label="Ta bort produkt från beställning" class="menu__cardDelete">
                         -
                     </button> 
                     <p class="menu__cardQuantity">
-                        ${orderedItems[i].quantity}
+                        ${fullOrder[i].quantity}
                     </p> 
                     <button aria-label="Lägg till produkt i beställning" class="menu__cardAdd">
                         +

@@ -1,6 +1,13 @@
 export function calcTotalPrice(fullOrder) {
     // fick hjälp av AI
-    return fullOrder.reduce((sum, order) => sum + order.price * order.quantity, 0);
+    if(!fullOrder || fullOrder.length === 0) return 0;
+
+    return fullOrder.reduce((sum, order) => {
+        const price = Number(order.price) || 0;
+        const quantity = Number(order.quantity) || 0;
+
+        return sum + price * quantity;
+    }, 0);
 }
 
 // min lösning

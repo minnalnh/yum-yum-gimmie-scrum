@@ -1,8 +1,8 @@
 import { emptyCartMsg } from './emptyCartMsg.js';
-import { fetchFood } from './modules/api.js';
-import { cartCounter } from './modules/gui.js';
+import { fetchFood } from './api.js';
+import { cartCounter } from './gui.js';
 import { updTotalPrice } from './updTotalPrice.js';
-import { getElement } from './utils/domUtils.js';
+import { getElement } from '../utils/domUtils.js';
 
 //Fetchar food från jespers api
 const food = await fetchFood();
@@ -18,7 +18,9 @@ export function menuInteraction(event) {
 		document.querySelectorAll('.menu__cardHidden').forEach((card) => card.classList.add('d-none'));
 		const id = target.dataset.id;
 
-        document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
+		if(window.location.pathname === '/pages/menu.html') {
+			document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
+		}
 	}
 
 	//  När man klickar på plus knappen ökar antalet man ska beställa
@@ -45,9 +47,13 @@ export function menuInteraction(event) {
 		const dataId = card.dataset.id;
 		const findPrice = food.items.find((item) => item.id == dataId);
 
+		if(!findPrice) {
+			console.error('Produkt hittades inte ', dataId);
+			return;
+		}
+
 		// fick hjälp med name delen och amount
 		if (amount > 0) {
-			createOrder(card, findPrice, amount);
 			//Min lösning igen // lägger in beställningen i local storage så att man kan hämta den vid senare tillfälle
 
 			let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
@@ -73,13 +79,15 @@ export function menuInteraction(event) {
         const orderQuantityRef = card.querySelector('.order__quantity');
         
 		const dataId = Number(card.dataset.id);
-		const findPrice = food.items.find((item) => item.id == dataId);
+		const findPrice = food.items.find((item) => item.id === dataId);
         
         if(amount === 0) {
-            let orderedItems = JSON.parse(localStorage.getItem('orderedItems'));
+            let orderedItems = JSON.parse(localStorage.getItem('orderedItems')) || [];
             orderedItems = orderedItems.filter(order => Number(order.id) !== dataId);
             localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
+
 			updTotalPrice();
+			cartCounter();
 			card.remove();
 
 			if(orderedItems.length === 0) {
@@ -112,7 +120,7 @@ export function menuInteraction(event) {
 
 function createOrder(card, findPrice, amount) {
 	const orderedItems = {
-		id: card.dataset.id,
+		id: Number(card.dataset.id),
 		name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
 		price: findPrice.price,
 		quantity: amount,

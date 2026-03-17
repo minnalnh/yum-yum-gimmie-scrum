@@ -8,18 +8,21 @@
         <link rel="stylesheet" href="../styles/nav.css">
         <!-- <link rel="stylesheet" href="../styles/menu.css"> -->
 		<title>Yum Yum Gimmie Sum</title>
-		<script type="module" src="../scripts/cart-page.js"></script>
+		<script type="module" src="../scripts/cartPage.js"></script>
 		<script type="module" src="../scripts/modules/gui.js"></script>
 		<script type="module" src="../scripts/script.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--grey">
 			<header class="header">
-				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
+				<section class="icon-container">
+					<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
+					<a href="./menu.html" ><img src="../resources/icons/close-icon.svg" alt="close" class="header__icon header__icon--close"></a>
+				</section>
 
-				<!-- CART BADGE / COUNTER -->
-				<section class="cart-container">
-					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+				<!-- CART BADGE / COUNTER (gömd) -->
+				<section class="cart-container v-hidden">
+					<a href="./menu.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
 					<div class="header__count-icon d-none" id="cartCountContainer">
 						<p class="header__count-number" id="cartCount"></p>
 					</div>
@@ -31,22 +34,20 @@
 						<a href="../index.html" class="nav-index-link"><img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" /></a>
 					</section>
 					<ul class="nav__list">
-						<ul class="nav__list">
-							<li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li>
-							<hr class="nav__line" />
-							<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
-							<hr class="nav__line" />
-							<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
-							<hr class="nav__line" />
-							<li class="nav__item"><a class="nav__link" href="./about.html">Om oss</a></li>
-							<hr class="nav__line" />
-							<li class="nav__item"><a class="nav__link" href="./contact.html">Kontakta oss</a></li>
-							<hr class="nav__line" />
-						</ul>
+						<li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./about.html">Om oss</a></li>
+						<hr class="nav__line" />
+						<li class="nav__item"><a class="nav__link" href="./contact.html">Kontakta oss</a></li>
+						<hr class="nav__line" />
 					</ul>
 				</nav>
 			</header>
-            <section class="menuHeaders">
+            <main class="menuHeaders">
                 <section class="menu">
                     <!-- <h2 id="emptyCartMsg"></h2> -->
 
@@ -56,7 +57,7 @@
 
 					</section>
 				</div>
-            </section>
+            </main>
             <a href="./order-status.html" class="confirm-btn btn btn--red">Bekräfta</a>
 		</div>
 	</body>
