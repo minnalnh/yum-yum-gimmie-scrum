@@ -4,7 +4,7 @@
     flex-direction: column;
     right: 1rem;
     width: 70%;
-    height: 70%;
+    min-height: 70%;
     background-color: white;
     border-radius: 6px;
     border: 1px solid black;
@@ -16,6 +16,8 @@
     background-color: var(--color-grey);
     padding: 1rem;
 }
+
+
 
 .cart__icon--close {
     width: 2rem;
