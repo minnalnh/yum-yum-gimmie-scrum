@@ -7,10 +7,12 @@
 		<link rel="stylesheet" href="../styles/index.css" />
 		<link rel="stylesheet" href="../styles/menu.css" />
 		<link rel="stylesheet" href="../styles/nav.css" />
+		<link rel="stylesheet" href="../styles/cart.css">
 		<title>Yum Yum Gimmie Sum</title>
 		<script type="module" src="../scripts/menu.js"></script>
 		<script type="module" src="../scripts/modules/gui.js"></script>
 		<script type="module" src="../scripts/script.js"></script>
+		<script type="module" src="../scripts/cart.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--greenleaf">
@@ -19,7 +21,7 @@
 
 				<!-- CART BADGE / COUNTER -->
 				<section class="cart-container">
-					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+					<img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" />
 					<div class="header__count-icon d-none" id="cartCountContainer">
 						<p class="header__count-number" id="cartCount"></p>
 					</div>
@@ -44,6 +46,17 @@
 					</ul>
 				</nav>
 			</header>
+
+			<div class="cart"> <!-- lägg till d-none -->
+				<section class="cart-header">
+					<img src="../resources/icons/close-icon.svg" alt="close" class="cart__icon cart__icon--close">
+				</section>
+				<section class="cart__items">
+
+				</section>
+				<a href="./cart-page.html" class="btn btn--red cart__button">Gå till kassan</a>
+			</div>
+
 			<section class="menuHeaders">
 				<button class="menuHeaders__button menuHeaders__button--active menuHeaders__button--test">Wonton</button>
 				<button class="menuHeaders__button">Burritos</button>

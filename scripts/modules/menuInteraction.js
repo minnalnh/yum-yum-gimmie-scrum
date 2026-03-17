@@ -40,6 +40,8 @@ export function menuInteraction(event) {
 	}
 
 	// Detta skapar objectet fick hjälp av youtube och guiding av ai.
+
+	// uppdatera varukorgen !!!
 	if (target.classList.contains('menu__cardBuy__button')) {
 		const amount = parseInt(card.querySelector('.menu__cardQuantity').innerText);
 
