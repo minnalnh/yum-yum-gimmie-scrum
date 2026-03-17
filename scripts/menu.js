@@ -157,6 +157,7 @@ document.querySelector('.menu').addEventListener('click', (event) => {
 	if (target.dataset.id) {
 		document.querySelectorAll('.menu__cardHidden').forEach((card) => card.classList.add('d-none'));
 		const id = target.dataset.id;
+		console.log(id);
 		document.querySelector('.menu__cardHidden' + id).classList.remove('d-none');
 	}
 

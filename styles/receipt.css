@@ -1,6 +1,7 @@
 .receipt{
     display:flex;
     flex-direction: column;
+    justify-content: space-between;
     min-height: 65vh;
     background-color: var(--color-white);
     margin-top: 2rem;
