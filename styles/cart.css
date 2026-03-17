@@ -1,0 +1,36 @@
+.cart {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 1rem;
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--color-grey);
+    padding: 1rem;
+}
+
+.cart__icon--close {
+    width: 2rem;
+    cursor: pointer;
+}
+
+.cart__button {
+    margin-top: auto;
+    margin-bottom: 1rem;
+    width: 90%;
+    align-self: center;
+}
+
+.empty-cart-msg {
+	font-family: 'Fira Sans', sans-serif;
+	text-align: center;
+	margin-top: 5rem;
+}
