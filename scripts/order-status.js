@@ -1,3 +1,4 @@
+import { timer } from "./modules/timer.js";
 import { getElement } from "./utils/domUtils.js";
 
 console.log ("hello från js");
@@ -35,3 +36,6 @@ showOrder.addEventListener("click", (e) => {
         
     return;
 })
+
+let countDown = document.querySelector('.orderStatus__subtitle')
+timer(countDown)
