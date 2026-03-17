@@ -38,10 +38,33 @@ function CalculateTotalCost(orderList) {
     }
 
 let addedValue = CalculateTotalCost(orderList)
-
 console.log(addedValue);
 
-let totalCost = document.querySelector('.receipt__total-valueText')
-
+let totalCost = document.querySelector('.receipt__total-valueText');
 totalCost.textContent = addedValue + " SEK";
 
+let getData = JSON.parse(localStorage.getItem("orderNumbers"));
+document.querySelector('.receipt__orderCode').textContent = "#" + getData.join("")
+
+
+function orderHistoryInfo(){
+    const getData = JSON.parse(localStorage.getItem("orderNumbers"));
+    const getFood = JSON.parse(localStorage.getItem("orderedItems"));
+    console.log(getData, getFood);
+
+    const orderInfo = {
+        orderNumbers: getData.join(""),
+        food: getFood,
+        date: new Date(),
+    }
+
+    const orderHistorik = JSON.parse(localStorage.getItem("orderInformations")) || [];
+
+    orderHistorik.push(orderInfo)
+    localStorage.setItem('orderInformations', JSON.stringify(orderHistorik));
+
+    localStorage.removeItem("orderNumbers");
+    localStorage.removeItem("orderedItems");
+    }
+
+orderHistoryInfo()
