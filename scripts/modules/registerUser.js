@@ -89,6 +89,11 @@ function validateRegistration(username, email, password, passwordRepeat) {
 		getElement('#nameError').textContent = 'Namnet är upptaget';
 		isValid = false;
 	}
+	// koll om email är taget
+	if (email && emailExists(email)) {
+		getElement('#emailError').textContent = 'E-postadressen är redan registrerad';
+		isValid = false;
+	}
 
 	return isValid;
 }
@@ -120,4 +125,10 @@ function usernameExists(username) {
 	console.log('in usernameExists()');
 	const users = getUsers();
 	return users.some((user) => user.username.toLowerCase() === username.toLowerCase());
+}
+
+function emailExists(email) {
+	console.log('in emailExists()');
+	const users = getUsers();
+	return users.some((user) => user.email && user.email.toLowerCase() === email.toLowerCase());
 }
