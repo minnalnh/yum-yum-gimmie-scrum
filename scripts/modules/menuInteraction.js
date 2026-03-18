@@ -74,7 +74,7 @@ export function menuInteraction(event) {
 			localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
 
 			cartCounter();
-			updCartItems(fullOrder); // lägger till flera produkter av samma menyval
+			updCartItems(fullOrder);
 		}
 	}
 
@@ -84,25 +84,19 @@ export function menuInteraction(event) {
         
 		const dataId = Number(card.dataset.id);
 		const findPrice = food.items.find((item) => item.id === dataId);
+
+		let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
         
         if(amount === 0) {
-            let orderedItems = JSON.parse(localStorage.getItem('orderedItems')) || [];
-            orderedItems = orderedItems.filter(order => Number(order.id) !== dataId);
-            localStorage.setItem('orderedItems', JSON.stringify(orderedItems));
+            fullOrder = fullOrder.filter(order => Number(order.id) !== dataId);
+            localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
 
 			updTotalPrice();
 			cartCounter();
 			card.remove();
 
-			if(orderedItems.length === 0) {
-				const cartMenuRef = getElement('.cart-menu');
-				emptyCartMsg(cartMenuRef);
-			}
-
         } else if (amount > 0) {
 			const orderedItems = createOrder(card, findPrice, amount);
-
-			let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
             
 			const existingItem = fullOrder.find((item) => item.id === orderedItems.id);
             
@@ -117,6 +111,11 @@ export function menuInteraction(event) {
             orderQuantityRef.innerText = `${amount} stycken`;
 			updTotalPrice();
             cartCounter();		
+		}
+
+		if(fullOrder.length === 0) {
+			const cartItemsRef = getElement('.cart__items');
+			emptyCartMsg(cartItemsRef);
 		}
 
 	}
