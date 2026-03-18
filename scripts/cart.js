@@ -33,6 +33,24 @@ function cartSetup() {
     } else {
         emptyCartMsg(cartItemsRef);
     }
+    
+    const wrapperRef = getElement('.wrapper');
+    const cartBtnRef = getElement('#cartBtn');
+    const cartCloseBtnRef = getElement('.cart__icon--close');
+    const menuBtnRef = getElement('#menuBtn');
+    const cartRef = getElement('.cart');
+
+    wrapperRef.addEventListener('click', (event) => {
+        const isMenuBtn = menuBtnRef.contains(event.target);
+        const isCartBtn = cartBtnRef.contains(event.target);
+        const isCartCloseBtn = cartCloseBtnRef.contains(event.target);
+
+        if (!isCartBtn && !isCartCloseBtn || isMenu) {
+            cartRef.classList.add('d-none');
+        }
+    });
+
+
 }
 
 function displayCartItems(cartItemsRef) {
@@ -57,7 +75,7 @@ function displayCartItems(cartItemsRef) {
                         +
                     </button> 
                     <button aria-label="Lägg till i varukorg" class="menu__card-update-button btn--red"> 
-                        Uppdatera varukorg 
+                        Uppdatera antal 
                     </button>
                 </section>
             </article>

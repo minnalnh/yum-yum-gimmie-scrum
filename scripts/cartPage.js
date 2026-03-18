@@ -4,7 +4,7 @@ import { menuInteraction } from './modules/menuInteraction.js';
 import { calcTotalPrice } from './modules/calcTotalPrice.js';
 import { emptyCartMsg } from './modules/emptyCartMsg.js';
 
-const cartMenuRef = getElement('.cart-menu');
+const cartMenuRef = getElement('.cart');
 
 function getOrder() {
     return JSON.parse(localStorage.getItem('orderedItems')) || [];
@@ -52,7 +52,7 @@ function displayOrder() {
                 </section>
             </article>
         `;
-        menuRef.innerHTML += orderTemplate;
+        cartMenuRef.innerHTML += orderTemplate;
     }
 
     let totalSum = calcTotalPrice(fullOrder);
@@ -63,4 +63,4 @@ function displayOrder() {
     `;
 
 }
-menuRef.addEventListener('click', menuInteraction);
+cartMenuRef.addEventListener('click', menuInteraction);
