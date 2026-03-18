@@ -46,7 +46,7 @@ function displayCartItems(cartItemsRef) {
                     <span class="element-order">${fullOrder[i].price} kr</span>
                 </p>
                 <p class="order__quantity">${fullOrder[i].quantity} stycken</p>
-                <section class="menu__btn-section"> 
+                <section class="cart__btn-section"> 
                     <button aria-label="Ta bort produkt från beställning" class="menu__cardDelete">
                         -
                     </button> 
@@ -65,3 +65,4 @@ function displayCartItems(cartItemsRef) {
         cartItemsRef.innerHTML += orderTemplate;
     }
 }
+cartRef.addEventListener('click', menuInteraction);

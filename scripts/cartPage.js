@@ -4,7 +4,7 @@ import { menuInteraction } from './modules/menuInteraction.js';
 import { calcTotalPrice } from './modules/calcTotalPrice.js';
 import { emptyCartMsg } from './modules/emptyCartMsg.js';
 
-const menuRef = getElement('.menu');
+const cartMenuRef = getElement('.cart-menu');
 
 function getOrder() {
     return JSON.parse(localStorage.getItem('orderedItems')) || [];
@@ -20,7 +20,7 @@ function orderSetup() {
         cartCounter();
     
     } else { // visa meddelande om varukorgen är tom
-        emptyCartMsg(menuRef);
+        emptyCartMsg(cartMenuRef);
     }
 }
 

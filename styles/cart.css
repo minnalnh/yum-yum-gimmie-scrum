@@ -17,11 +17,17 @@
     padding: 1rem;
 }
 
-
+.element-order {
+    order: 2;
+}
 
 .cart__icon--close {
     width: 2rem;
     cursor: pointer;
+}
+
+.cart__btn-section {
+    display: flex;
 }
 
 .cart__button {
