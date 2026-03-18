@@ -3,6 +3,7 @@ import { fetchFood } from './api.js';
 import { cartCounter } from './gui.js';
 import { updTotalPrice } from './updTotalPrice.js';
 import { getElement } from '../utils/domUtils.js';
+import { updCartItems } from './updCartItems.js';
 
 //Fetchar food från jespers api
 const food = await fetchFood();
@@ -73,6 +74,7 @@ export function menuInteraction(event) {
 			localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
 
 			cartCounter();
+			updCartItems(fullOrder); // lägger till flera produkter av samma menyval
 		}
 	}
 
@@ -93,8 +95,8 @@ export function menuInteraction(event) {
 			card.remove();
 
 			if(orderedItems.length === 0) {
-				const menuRef = getElement('.menu');
-				emptyCartMsg(menuRef);
+				const cartMenuRef = getElement('.cart-menu');
+				emptyCartMsg(cartMenuRef);
 			}
 
         } else if (amount > 0) {
