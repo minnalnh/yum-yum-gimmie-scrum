@@ -39,14 +39,14 @@ function cartSetup() {
     const cartCloseBtnRef = getElement('.cart__icon--close');
     const menuBtnRef = getElement('#menuBtn');
     const cartRef = getElement('.cart');
-
+    
     wrapperRef.addEventListener('click', (event) => {
         const isMenuBtn = menuBtnRef.contains(event.target);
         const isCartBtn = cartBtnRef.contains(event.target);
         const isCart = cartRef.contains(event.target);
         const isCartCloseBtn = cartCloseBtnRef.contains(event.target);
-
-        if (!isCartBtn && !isCartCloseBtn && !isCart || isMenu) {
+        
+        if (!isCart && !isCartBtn && !isCartCloseBtn || isMenuBtn) {
             cartRef.classList.add('d-none');
         }
     });
