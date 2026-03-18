@@ -29,7 +29,7 @@ export function updCartItems(fullOrder) {
                     <button aria-label="Lägg till produkt i beställning" class="menu__cardAdd">
                         +
                     </button> 
-                    <button aria-label="Lägg till i varukorg" class="menu__card-update-button btn--red"> 
+                    <button aria-label="Lägg till i varukorg" class="menu__card-update-button cart__button btn--red"> 
                         Uppdatera varukorg 
                     </button>
                 </section>
