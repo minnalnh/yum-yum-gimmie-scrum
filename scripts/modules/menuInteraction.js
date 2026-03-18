@@ -25,7 +25,7 @@ export function menuInteraction(event) {
 	}
 
 	//  När man klickar på plus knappen ökar antalet man ska beställa
-	if (target.classList.contains('menu__cardAdd')) {
+	if (target.classList.contains('menu__cardAdd') || target.classList.contains('menu__cardAdd')) {
 		const quantityEl = card.querySelector('.menu__cardQuantity');
 		let currentAmount = parseInt(quantityEl.innerText);
 		quantityEl.innerText = currentAmount + 1;
@@ -79,6 +79,7 @@ export function menuInteraction(event) {
 	}
 
     if (target.classList.contains('menu__card-update-button')) {
+		event.stopPropagation(); // förhindrar att varukorgen stängs automatiskt
 		const amount = parseInt(card.querySelector('.menu__cardQuantity').innerText.split(' ')[0]);
         const orderQuantityRef = card.querySelector('.order__quantity');
         
