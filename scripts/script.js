@@ -1,3 +1,3 @@
-import { cartCounter } from './modules/gui';
+import { cartCounter } from './modules/gui.js';
 
 cartCounter(true);

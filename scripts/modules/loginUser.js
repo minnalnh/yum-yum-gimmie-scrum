@@ -36,11 +36,16 @@ export function loginUser() {
 		if (validateLogin(username, password, emailErrorRef)) {
 			const user = findUser(username);
 
-			if (user) {
-				sessionStorage.setItem('activeUser', JSON.stringify(user));
-				console.log('Inloggning lyckades!');
-				window.location.href = '../pages/menu.html';
+			if (!user || user.password !== password) {
+				if (emailErrorRef) {
+					emailErrorRef.textContent = 'Användarnamn eller lösenord är fel';
+				}
+				return;
 			}
+
+			sessionStorage.setItem('activeUser', JSON.stringify(user));
+			console.log('Inloggning lyckades!');
+			window.location.href = '../pages/menu.html';
 		}
 	});
 }
