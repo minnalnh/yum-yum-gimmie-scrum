@@ -43,9 +43,10 @@ function cartSetup() {
     wrapperRef.addEventListener('click', (event) => {
         const isMenuBtn = menuBtnRef.contains(event.target);
         const isCartBtn = cartBtnRef.contains(event.target);
+        const isCart = cartRef.contains(event.target);
         const isCartCloseBtn = cartCloseBtnRef.contains(event.target);
 
-        if (!isCartBtn && !isCartCloseBtn || isMenu) {
+        if (!isCartBtn && !isCartCloseBtn && !isCart || isMenu) {
             cartRef.classList.add('d-none');
         }
     });
