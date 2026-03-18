@@ -73,8 +73,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: .3rem;
-    flex-wrap: wrap;
 }
 
 .cart__btn-section button {
