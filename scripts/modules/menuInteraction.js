@@ -10,9 +10,11 @@ const food = await fetchFood();
 
 export function menuInteraction(event) {
     const target = event.target; // Det element som klickades på
-	const card = target.closest('.menu__card'); // Hitta kortet vi klickade i
+	const card = target.closest('.menu__card, .cart__card');
+	//const card2 = target.closest('.cart__card'); // Hitta kortet vi klickade i
     
 	if (!card) return; // Om vi klickade helt utanför kortet, gör det inget
+	//if(!card2) return;
 
 	// samma som min gamla fast förbättrad
 	if (target.dataset.id) {
@@ -25,24 +27,44 @@ export function menuInteraction(event) {
 	}
 
 	//  När man klickar på plus knappen ökar antalet man ska beställa
-	if (target.classList.contains('menu__cardAdd') || target.classList.contains('menu__cardAdd')) {
-		const quantityEl = card.querySelector('.menu__cardQuantity');
-		let currentAmount = parseInt(quantityEl.innerText);
-		quantityEl.innerText = currentAmount + 1;
+	if (target.classList.contains('menu__cardAdd') || target.classList.contains('cart__cardAdd')) {
+		let quantityEl;
+		if(target.classList.contains('menu__cardAdd')) {
+			quantityEl = card.querySelector('.menu__cardQuantity');
+
+			let currentAmount = parseInt(quantityEl.innerText);
+			quantityEl.innerText = currentAmount + 1;
+
+		} else if(target.classList.contains('cart__cardAdd')) {
+			quantityEl = card.querySelector('.cart__cardQuantity');
+
+			let currentAmount = parseInt(quantityEl.innerText);
+			quantityEl.innerText = currentAmount + 1;
+		}
 	}
 
 	// När man klickar på minus knappen minskar antalet man ska beställa
-	if (target.classList.contains('menu__cardDelete')) {
-		const quantityEl = card.querySelector('.menu__cardQuantity');
-		let currentAmount = parseInt(quantityEl.innerText);
-		if (currentAmount > 0) {
+	if(target.classList.contains('menu__cardDelete') || target.classList.contains('cart__cardDelete')) {
+		let quantityEl;
+		if(target.classList.contains('menu__cardDelete')) {
+			quantityEl = card.querySelector('.menu__cardQuantity');
+
+			let currentAmount = parseInt(quantityEl.innerText);
+			if (currentAmount > 0) {
 			quantityEl.innerText = currentAmount - 1;
+			}
+
+		} else if(target.classList.contains('cart__cardDelete')) {
+			quantityEl = card.querySelector('.cart__cardQuantity');
+
+			let currentAmount = parseInt(quantityEl.innerText);
+			if (currentAmount > 0) {
+			quantityEl.innerText = currentAmount - 1;
+			}
 		}
 	}
 
 	// Detta skapar objectet fick hjälp av youtube och guiding av ai.
-
-	// uppdatera varukorgen !!!
 	if (target.classList.contains('menu__cardBuy__button')) {
 		const amount = parseInt(card.querySelector('.menu__cardQuantity').innerText);
 
@@ -78,9 +100,15 @@ export function menuInteraction(event) {
 		}
 	}
 
-    if (target.classList.contains('menu__card-update-button')) {
+    if (target.classList.contains('menu__card-update-button') || target.classList.contains('cart__update-button')) {
 		event.stopPropagation(); // förhindrar att varukorgen stängs automatiskt
-		const amount = parseInt(card.querySelector('.menu__cardQuantity').innerText.split(' ')[0]);
+		let amount;
+		if(target.classList.contains('menu__card-update-button')) {
+			amount = parseInt(card.querySelector('.menu__cardQuantity').innerText.split(' ')[0]);
+
+		} else if(target.classList.contains('cart__update-button')) {
+			amount = parseInt(card.querySelector('.cart__cardQuantity').innerText.split(' ')[0]);
+		}
         const orderQuantityRef = card.querySelector('.order__quantity');
         
 		const dataId = Number(card.dataset.id);
@@ -125,7 +153,7 @@ export function menuInteraction(event) {
 function createOrder(card, findPrice, amount) {
 	const orderedItems = {
 		id: Number(card.dataset.id),
-		name: card.querySelector('.menu__cardHeader').innerText.split('\n')[0].trim(),
+		name: card.querySelector('.menu__cardHeader, .cart__cardHeader').innerText.split('\n')[0].trim(),
 		price: findPrice.price,
 		quantity: amount,
 	};

@@ -1,4 +1,4 @@
-/* .overlay {
+.overlay {
     padding: 1rem;
 	justify-content: center;
 	min-height: 100vh;
@@ -8,7 +8,11 @@
     border: 1px solid black;
     background-color: black;
     opacity: .5;
-} */
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    position: absolute;
+}
 
 .cart {
     position: absolute;
@@ -22,6 +26,7 @@
     background-color: white;
     border-radius: 6px;
     box-shadow: inset;
+    z-index: 10;
 }
 
 .cart__card {
