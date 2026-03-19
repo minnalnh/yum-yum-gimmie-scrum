@@ -1,0 +1,103 @@
+
+.wrapper{
+    padding: 1rem 1rem 5rem 1rem;
+}
+
+.card-title__section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0rem 0rem 0rem;
+}
+
+.btn--tillbaka{
+    width: 25%;
+    padding: .5rem;
+    
+}
+
+h1{
+    color: white;
+    font-family: pt serif;
+}
+
+h2, h3, h4, p, button, span{
+    font-family: fira sans;
+    color: var(--color-darkgrey);
+}
+
+
+
+.order__pris, .order__produktNamn{
+    font-weight: 700;
+}
+
+.order{
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    margin: 1rem 0rem 1rem 0rem;
+    padding: 1rem 1rem 1rem 1rem;
+    
+}
+
+.order__info{
+    display: flex;
+    justify-content: space-between; 
+    margin: 0rem 0rem 2rem 0rem;
+}
+
+.order__date{
+    /* text-align: end; */
+    font-size: 16px;
+    
+}
+
+.order__nummer{
+    /* margin: 1rem 0rem 1rem 0rem; */
+    font-weight: 500;
+    /* font-size: ; */
+    
+    
+}
+
+ .order__produkt{
+    margin: 1rem 0rem 1rem 0rem;
+    
+    
+} 
+li{
+    list-style: none;
+}
+
+.order__item {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.order__item::after {
+    content: "";
+    border-bottom: 3px dotted #000;
+    flex-grow: 1;
+    height: 0.7rem;
+    margin: .6rem;
+    
+}
+
+.order__pris{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    order: 2; 
+}
+
+.order__produktNamn{
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.order__antal{
+    font-size: 15px;
+    font-weight: 400;
+    
+}
