@@ -53,7 +53,8 @@
 		min-width: 16px;
 		aspect-ratio: 1;
 		height: 20px;
-		background-color: var(--color-red);
+		/* background-color: var(--color-red); */
+		background-color: #c92222;  /*la till en mörkare röd för den förra har för låg kontrast*/
 		border-radius: 40%;
 		color: var(--color-off-white);
 		font-family: 'fira sans';
