@@ -116,6 +116,7 @@
 }
 
 .menu__cardAdd {
+	background-color: var(--color-off-white);
 	border: none;
 	padding-right: 20px;
 	align-self: center;
@@ -124,6 +125,7 @@
 }
 
 .menu__cardDelete {
+	background-color: var(--color-off-white);
 	border: none;
 	padding-right: 20px;
 	align-self: center;

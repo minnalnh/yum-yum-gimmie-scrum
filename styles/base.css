@@ -50,8 +50,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 8px;
-		min-width: 16px;
-		aspect-ratio: 1;
+		width: 20px;
 		height: 20px;
 		/* background-color: var(--color-red); */
 		background-color: #c92222;  /*la till en mörkare röd för den förra har för låg kontrast*/
@@ -61,7 +60,7 @@
 	}
 }
 
-/* AI hjälp att göra animation av favorit-ikon */
+/* AI hjälp att göra animation av cart-ikon */
 .icon-pop {
 	animation: pop 0.3s ease-out;
 }
@@ -106,4 +105,28 @@
 
 .d-none {
 	display: none !important;
+}
+
+.contact-logo-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	.contact-us-logo {
+		width: 10rem;
+	}
+}
+.contact-us-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 1rem;
+	margin: 1rem 0rem 1rem 0rem;
+	/* align-items: center; */
+	/* width: 100%; */
+}
+.fa-instagram {
+	width: 3rem;
+	height: 3rem;
+	color: var(--color-red);
 }

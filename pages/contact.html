@@ -3,36 +3,38 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>User page</title>
-		<link rel="stylesheet" href="../styles/nav.css" />
+		<title>Location</title>
 		<link rel="stylesheet" href="../styles/base.css" />
-		<link rel="stylesheet" href="../styles/profile.css" />
+		<link rel="stylesheet" href="../styles/location.css" />
+		<link rel="stylesheet" href="../styles/nav.css" />
+		<link rel="stylesheet" href="../styles/contact.css" />
+		<script type="module" src="../scripts/location.js"></script>
 		<script type="module" src="../scripts/modules/gui.js"></script>
-		<script type="module" src="../scripts/profile.js"></script>
-		<script type="module" src="../scripts/menu.js"></script>
+		<script type="module" src="../scripts/script.js"></script>
+		<script type="module" src="../scripts/orderNumber.js"></script>
 	</head>
 	<body>
-		<div class="wrapper wrapper--grey">
+		<div class="wrapper wrapper--greenleaf">
 			<header class="header">
 				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
 
 				<!-- CART BADGE / COUNTER -->
-				<section class="cart-container">
+				<!-- <section class="cart-container">
 					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
 					<div class="header__count-icon d-none" id="cartCountContainer">
 						<p class="header__count-number" id="cartCount"></p>
-					</div>
+					</div> -->
 				</section>
-
 				<nav class="nav">
 					<section class="nav__img-container">
 						<img src="../resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeBtn" />
-						<!-- <img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" /> -->
 						<a href="../index.html" class="nav-index-link"><img src="../resources/icons/YYGS_logo_outline.svg" class="nav__logo" alt="Yum Yum Gimmie Sum:s logotyp" /></a>
 					</section>
 					<ul class="nav__list">
 						<!-- <li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li> -->
-						<!-- <hr class="nav__line" /> -->
+						
+						<li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li>
+						<hr class="nav__line" />
 						<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
 						<hr class="nav__line" />
 						<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
@@ -44,31 +46,29 @@
 					</ul>
 				</nav>
 			</header>
-			<section class="profile-section">
-				<img class="profile__img" src="../resources/icons/profile-pic.svg" alt="Din profilbild" />
-				<h1 class="profile__name">Gimmie Yumson</h1>
-				<p class="profile__description">gimmie.yumson@zocom.se</p>
-				<p class="profile__description">+46-666 666 66</p>
+            <div class="contact-logo-container">
+                <img src="../resources/icons/logo.jpg" alt="Yum Yum Gimmie Sum:s logotyp" class="contact-us-logo" />
+            </div>
+
+			<section class="contact-us-container">
+				<h1 class="card__title">Kontakta oss</h1>
+				<section class="card__text-section">
+                    <i class="fa-brands fa-instagram""></i>
+					<section class="card__text-row card__text">
+                        
+						<h2 class="card__subtitle">Stadsparken</h2>
+					</section>
+					<p class="card__description">Stadsparksgatan 1, Karlstad</p>
+				</section>
+				<section class="card__text-section">
+					<section class="card__text-row">
+						<h2 class="card__subtitle">Stora torget</h2>
+					</section>
+					<p class="card__description">Stora torget 1, Karlstad</p>
+				</section>
 			</section>
-			<!-- <section class="card">
-			<h2 class="card__subtitle">Orderhistorik</h2>
-			<h3 class="card__description" >#4kjwsdf234k</h3>
-			<h4 class="card__info">Karlstad</h4>
-			<p class="card__sek">27 SEK</p>
-			<p class="card__antal">3 stycken</p>
-			<h4 class="card__info">HO CHI MINH</h4>
-			<p class="card__sek">18 SEK</p>
-			<p class="card__antal">2 stycken</p>
-			<h4 class="card__info">KINGSTON</h4>
-			<p class="card__sek">18 SEK</p>
-			<p class="card__antal">2 stycken</p>
-			<h4 class="card__info">SWEET CHILI DIP</h4>
-			<p class="card__sek">19 SEK</p>
-			<p class="card__antal">1 stycken</p>
-		</section> -->
 			<section class="btn-section">
-				<button class="btn btn--red btn--down btnOrder">Visa orderhistorik</button>
-				<button class="btn btn--red btn--down btnKonto">Ändra kontoinställningar</button>
+				<a href="/pages/categories.html" class="btn btn--red card__btn">Gå till menyn</a>
 			</section>
 		</div>
 	</body>
