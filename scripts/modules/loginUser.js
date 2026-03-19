@@ -35,6 +35,7 @@ export function loginUser() {
 
 		if (validateLogin(username, password, emailErrorRef)) {
 			const user = findUser(username);
+			console.log(user)
 
 			if (user) {
 				sessionStorage.setItem('activeUser', JSON.stringify(user));
