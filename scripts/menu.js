@@ -36,7 +36,7 @@ function renderWonton(food) {
                 <button aria-label="Lägg till rätt i beställning" class="menu__cardAdd">
                     +
                 </button> 
-                <button aria-label="Lägg till i varukorgen" type="button" class="menu__cardBuy__button"> 
+                <button aria-label="Lägg till i varukorgen" type="button" class="menu__cardBuy__button btn--red"> 
                     Lägg till i varukorg 
                 </button>
             </section>

@@ -15,10 +15,10 @@ cartCloseBtnRef.addEventListener('click', toggleShowCart);
 
 function toggleShowCart() {
     if(cartRef.classList.contains('d-none')) {
-        cartRef.classList.remove('d-none');
+        cartRef.classList.toggle('d-none');
 
     } else if(!cartRef.classList.contains('d-none')) {
-        cartRef.classList.add('d-none');
+        cartRef.classList.toggle('d-none');
     }
 }
 

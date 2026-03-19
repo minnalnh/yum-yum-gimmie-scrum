@@ -10,11 +10,9 @@ const food = await fetchFood();
 
 export function menuInteraction(event) {
     const target = event.target; // Det element som klickades på
-	const card = target.closest('.menu__card, .cart__card');
-	//const card2 = target.closest('.cart__card'); // Hitta kortet vi klickade i
+	const card = target.closest('.menu__card, .cart__card'); // Hitta kortet vi klickade i
     
 	if (!card) return; // Om vi klickade helt utanför kortet, gör det inget
-	//if(!card2) return;
 
 	// samma som min gamla fast förbättrad
 	if (target.dataset.id) {
@@ -117,12 +115,24 @@ export function menuInteraction(event) {
 		let fullOrder = JSON.parse(localStorage.getItem('orderedItems')) || [];
         
         if(amount === 0) {
+			console.log(fullOrder.length);
             fullOrder = fullOrder.filter(order => Number(order.id) !== dataId);
             localStorage.setItem('orderedItems', JSON.stringify(fullOrder));
 
 			updTotalPrice();
 			cartCounter();
 			card.remove();
+
+			if(fullOrder.length === 0) {
+				let cartItemsRef;
+				if(window.location.pathname === '/pages/menu.html') {
+					 cartItemsRef = getElement('.cart__items');
+
+				} else if(window.location.pathname === '/pages/cart-page.html') {
+					cartItemsRef = getElement('.cart');
+				}
+			emptyCartMsg(cartItemsRef);
+			}
 
         } else if (amount > 0) {
 			const orderedItems = createOrder(card, findPrice, amount);
@@ -140,11 +150,6 @@ export function menuInteraction(event) {
             orderQuantityRef.innerText = `${amount} stycken`;
 			updTotalPrice();
             cartCounter();		
-		}
-
-		if(fullOrder.length === 0) {
-			const cartItemsRef = getElement('.cart__items');
-			emptyCartMsg(cartItemsRef);
 		}
 
 	}

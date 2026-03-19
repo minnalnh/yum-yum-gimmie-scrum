@@ -28,11 +28,21 @@
 	font-family: 'PT Serif', serif;
 	text-shadow: 0.68px 0.68px 1.36px rgba(0, 0, 0, 0.25);
 	color: white;
+	cursor: pointer;
+}
+
+.menuHeaders__button:hover {
+	background-color: #3E3838;
 }
 
 .menuHeaders__button--active {
 	background-color: var(--color-red);
 	border: 2px solid white;
+}
+
+.menuHeaders__button--active:hover {
+	background-color: var(--color-red);
+	cursor: default;
 }
 
 .menu {
@@ -63,6 +73,7 @@
 	flex-direction: column;
 	width: auto;
 	min-width: 350px;
+	cursor: pointer;
 }
 
 .menu__cardHeader {
@@ -122,6 +133,7 @@
 	padding-left: 20px;
 	font-size: 2rem;
 	background-color: var(--color-white);
+	cursor: pointer
 }
 
 .menu__cardDelete {
@@ -132,6 +144,7 @@
 	padding-left: 20px;
 	font-size: 2.5rem;
 	background-color: var(--color-white);
+	cursor: pointer;
 }
 
 .menu__cardBuy__button {
@@ -145,6 +158,7 @@
 	border-radius: 12px;
 	border: none;
 	width: 50%;
+	cursor: pointer;
 }
 
 .d-none {
