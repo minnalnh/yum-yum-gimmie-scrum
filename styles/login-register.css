@@ -12,6 +12,14 @@
 		/* border-radius: 5px; */
 	}
 }
+
+.login-title{
+	color: black;
+	font-family: PT Serif;
+	text-align: center;
+	font-size: 32px;
+}
+
 .form-container {
 	display: flex;
 	flex-direction: column;

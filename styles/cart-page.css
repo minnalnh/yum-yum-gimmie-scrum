@@ -25,6 +25,13 @@
 	margin-top: 5rem;
 }
 
+.visually-hidden{ /*gömmer rubriken men gör den synlig för tillgänglighet. tips av AI*/
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+}
+
 .menuHeaders {
 	display: flex;
 	flex-direction: column;
