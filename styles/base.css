@@ -23,6 +23,7 @@
 	min-height: 100vh;
 	max-width: 480px;
 	overflow: hidden;
+	position: relative;
 }
 
 .wrapper--greenleaf {
@@ -50,17 +51,17 @@
 		justify-content: center;
 		align-items: center;
 		padding: 8px;
-		min-width: 16px;
-		aspect-ratio: 1;
+		width: 20px;
 		height: 20px;
-		background-color: var(--color-red);
+		/* background-color: var(--color-red); */
+		background-color: #c92222; /*la till en mörkare röd för den förra har för låg kontrast*/
 		border-radius: 40%;
 		color: var(--color-off-white);
 		font-family: 'fira sans';
 	}
 }
 
-/* AI hjälp att göra animation av favorit-ikon */
+/* AI hjälp att göra animation av cart-ikon */
 .icon-pop {
 	animation: pop 0.3s ease-out;
 }
@@ -96,13 +97,64 @@
 	background-color: var(--color-red);
 }
 
-/* class="btn btn--red" */
-
 .btn--grey {
 	background-color: var(--color-grey);
 	border: 1px solid var(--color-white);
 }
 
+.btn--red:hover {
+	background-color: #8F1E1E;
+}
+
+.btn--grey:hover {
+	background-color: #3E3838;
+}
+
 .d-none {
 	display: none !important;
+}
+
+.contact-logo-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 2rem;
+
+	.contact-us-logo {
+		width: 10rem;
+	}
+}
+.contact-us-container {
+	margin: 0 auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 1rem;
+	padding-bottom: 2rem;
+
+	.contact-us-container__title {
+		padding: 2rem 0 1.5rem 0;
+	}
+
+	.contact-us-container__objects {
+		max-width: 90%;
+
+		.contact-us-text {
+			line-height: 22px;
+			padding-bottom: 1rem;
+		}
+		.contact-icon {
+			width: 2.3rem;
+			padding: 0.5rem 0rem 0.5rem 0rem;
+		}
+
+		.contact-us-object {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+	}
 }

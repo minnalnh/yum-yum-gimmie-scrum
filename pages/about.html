@@ -1,20 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
-    <link rel="stylesheet" href="../styles/base.css" />
-    <link rel="stylesheet" href="../styles/nav.css" />
-    <link rel="stylesheet" href="../styles/about.css" />
-    <script type="module" src="../scripts/modules/gui.js"></script>
-    <script type="module" src="../scripts/modules/about.js"></script>
-</head>
-<body>
-    <div class="wrapper wrapper--greenleaf">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>About us</title>
+		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/nav.css" />
+		<link rel="stylesheet" href="../styles/about.css" />
+		<script type="module" src="../scripts/modules/gui.js"></script>
+		<script type="module" src="../scripts/menu.js"></script>
+		<script type="module" src="../scripts/modules/about.js"></script>
+	</head>
+	<body>
+		<div class="wrapper wrapper--greenleaf">
 			<header class="header">
 				<img class="header__icon" id="menuBtn" src="../resources/icons/menu-icon.svg" alt="Menyknapp" />
-				<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+				<!-- CART BADGE / COUNTER -->
+				<section class="cart-container">
+					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
+					<div class="header__count-icon d-none" id="cartCountContainer">
+						<p class="header__count-number" id="cartCount"></p>
+					</div>
+				</section>
 				<nav class="nav">
 					<section class="nav__img-container">
 						<img src="../resources/icons/close-icon.svg" alt="Stäng navigationsmenyn" class="nav__icon" id="closeBtn" />
@@ -23,7 +30,7 @@
 					</section>
 					<ul class="nav__list">
 						<!-- <li class="nav__item"><a class="nav__link" href="./profile.html">Profil</a></li> -->
-						<hr class="nav__line" />
+						<!-- <hr class="nav__line" /> -->
 						<li class="nav__item"><a class="nav__link" href="./menu.html">Meny</a></li>
 						<hr class="nav__line" />
 						<li class="nav__item"><a class="nav__link" href="./location.html">Vart är vi</a></li>
@@ -35,19 +42,19 @@
 					</ul>
 				</nav>
 			</header>
-            <section class="card">
-                <h1 class="card__title">Om oss</h1>
-                <p class="card__description">YYGS (Yum Yum Gimmie Sum) föddes ur en enkel idé: att sprida glädje och god mat på ett snabbt och roligt sätt, direkt från våra foodtrucks. Grundarna som har en passion för streetfood, ville skapa ett koncept där maten alltid är färsk, smakrik och enkel att ta med – utan att kompromissa med kvalitet eller kreativitet.</p>
-                <img class="card__img" src="../resources/images/binmassam-chef.jpg" alt="Kocken lagar mat">
-                <p class="card__description">Vi serverar allt från saftiga burgare och kryddiga burritos till krispiga wontons, värmande ramen, smakrika dipsåser och uppfriskande drycker. Med hjälp av vår interaktiva karta hittar du alltid den närmaste trucken, så att du kan njuta av din favoritmat var du än är, oavsett om du är på språng, med vänner eller på väg hem från jobbet.</p>
-                <img class="card__img" src="../resources/images/burger-.jpg" alt="humburgare">
-                <p class="card__description">Vad som driver oss är inte bara matlagning – det är glädjen i att skapa upplevelser, se människor le och ge dem en mötesplats med god mat. Vi strävar efter att kombinera snabb service med omtanke och kvalitet, och vill alltid överraska med nya smaker och spännande rätter.</p>
-                <img class="card__img" src="../resources/images/chef.jpg" alt="serverar mat">
-                <p class="card__description">YYGS handlar om mer än bara mat. Vi vill vara en del av din vardag, en plats där enkelhet möter smak, och där varje måltid blir en liten stund av njutning och gemenskap. Vi tror på mat som samlar människor, skapar minnen och sprider energi – och det är precis vad vi vill leverera, truck efter truck.</p>
-            </section>
-            <section class="logga-section">
-                <img class="logga" src="../resources/icons/logo.jpg" alt="logga">
-            </section>
-        </div>
-</body>
+			<section class="card">
+				<h1 class="card__title">Om oss</h1>
+				<p class="card__description">YYGS (Yum Yum Gimmie Sum) föddes ur en enkel idé: att sprida glädje och god mat på ett snabbt och roligt sätt, direkt från våra foodtrucks. Grundarna som har en passion för streetfood, ville skapa ett koncept där maten alltid är färsk, smakrik och enkel att ta med – utan att kompromissa med kvalitet eller kreativitet.</p>
+				<img class="card__img" src="../resources/images/binmassam-chef.jpg" alt="Kocken lagar mat" />
+				<p class="card__description">Vi serverar allt från saftiga burgare och kryddiga burritos till krispiga wontons, värmande ramen, smakrika dipsåser och uppfriskande drycker. Med hjälp av vår interaktiva karta hittar du alltid den närmaste trucken, så att du kan njuta av din favoritmat var du än är, oavsett om du är på språng, med vänner eller på väg hem från jobbet.</p>
+				<img class="card__img" src="../resources/images/burger-.jpg" alt="humburgare" />
+				<p class="card__description">Vad som driver oss är inte bara matlagning – det är glädjen i att skapa upplevelser, se människor le och ge dem en mötesplats med god mat. Vi strävar efter att kombinera snabb service med omtanke och kvalitet, och vill alltid överraska med nya smaker och spännande rätter.</p>
+				<img class="card__img" src="../resources/images/chef.jpg" alt="serverar mat" />
+				<p class="card__description">YYGS handlar om mer än bara mat. Vi vill vara en del av din vardag, en plats där enkelhet möter smak, och där varje måltid blir en liten stund av njutning och gemenskap. Vi tror på mat som samlar människor, skapar minnen och sprider energi – och det är precis vad vi vill leverera, truck efter truck.</p>
+			</section>
+			<section class="logga-section">
+				<img class="logga" src="../resources/icons/logo.jpg" alt="logga" />
+			</section>
+		</div>
+	</body>
 </html>

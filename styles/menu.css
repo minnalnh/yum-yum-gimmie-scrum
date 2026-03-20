@@ -28,6 +28,11 @@
 	font-family: 'PT Serif', serif;
 	text-shadow: 0.68px 0.68px 1.36px rgba(0, 0, 0, 0.25);
 	color: white;
+	cursor: pointer;
+}
+
+.menuHeaders__button:hover {
+	background-color: #3E3838;
 }
 
 .menuHeaders__button--active {
@@ -35,15 +40,27 @@
 	border: 2px solid white;
 }
 
+.menuHeaders__button--active:hover {
+	background-color: var(--color-red);
+	cursor: default;
+}
+
 .menu {
 	display: flex;
 	flex-direction: column;
 	/* min-height: 82vh; */
-	background-color: #f4f3f1;
+	background-color: var(--color-white);
 	border-radius: 3px;
 	justify-self: center;
 	margin-top: 10px;
 	padding: 0 20px 50px 20px;
+}
+
+.visually-hidden{ /*gömmer rubriken men gör den synlig för tillgänglighet. tips av AI*/
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
 }
 
 .center {
@@ -56,6 +73,7 @@
 	flex-direction: column;
 	width: auto;
 	min-width: 350px;
+	cursor: pointer;
 }
 
 .menu__cardHeader {
@@ -109,20 +127,26 @@
 }
 
 .menu__cardAdd {
+	background-color: var(--color-off-white);
 	border: none;
 	padding-right: 20px;
 	align-self: center;
 	padding-left: 20px;
 	font-size: 2rem;
+	background-color: var(--color-white);
+	cursor: pointer
 }
 
 .menu__cardDelete {
+	background-color: var(--color-off-white);
 	border: none;
 	padding-right: 20px;
 	align-self: center;
 	padding-bottom: 4px;
 	padding-left: 20px;
 	font-size: 2.5rem;
+	background-color: var(--color-white);
+	cursor: pointer;
 }
 
 .menu__cardBuy__button {
@@ -136,6 +160,7 @@
 	border-radius: 12px;
 	border: none;
 	width: 50%;
+	cursor: pointer;
 }
 
 .d-none {

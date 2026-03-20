@@ -4,14 +4,15 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="../styles/base.css" />
+		<link rel="stylesheet" href="../styles/index.css" />
 		<link rel="stylesheet" href="../styles/menu.css" />
 		<link rel="stylesheet" href="../styles/nav.css" />
-		<link rel="stylesheet" href="../styles/cart.css">
+		<link rel="stylesheet" href="../styles/categories.css" />
 		<title>Yum Yum Gimmie Sum</title>
 		<script type="module" src="../scripts/menu.js"></script>
 		<script type="module" src="../scripts/modules/gui.js"></script>
+		<script type="module" src="../scripts/categories/gui.js"></script>
 		<script type="module" src="../scripts/script.js"></script>
-		<script type="module" src="../scripts/cart.js"></script>
 	</head>
 	<body>
 		<div class="wrapper wrapper--greenleaf">
@@ -20,7 +21,7 @@
 
 				<!-- CART BADGE / COUNTER -->
 				<section class="cart-container">
-					<img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" />
+					<a href="./cart-page.html" class="cart-link"> <img class="header__icon" id="cartBtn" src="../resources/icons/cart-icon.svg" alt="Varukorgsknapp" /></a>
 					<div class="header__count-icon d-none" id="cartCountContainer">
 						<p class="header__count-number" id="cartCount"></p>
 					</div>
@@ -45,28 +46,33 @@
 					</ul>
 				</nav>
 			</header>
-
-			<!-- Varukorg -->
-			<div class="cart d-none">
-				<section class="cart-header">
-					<h2 class="cart-title">Din varukorg</h2>
-					<img src="../resources/icons/close-icon.svg" alt="close" class="cart__icon cart__icon--close">
+			<h1 class="menykategorier-title visually-hidden">Menykategorier</h1>
+			<section class="categories">
+				<section class="categories__cards">
+					<img src="../resources/images/burrito.jpg" class="categories__img" alt="Burritos-meny" />
+					<h2 class="categories__title">Burritos</h2>
 				</section>
-				<section class="cart__items">
-
+				<section class="categories__cards">
+					<img src="../resources/images/hamburger.jpg" class="categories__img" alt="Burgers-meny" />
+					<h2 class="categories__title">Burgers</h2>
 				</section>
-				<a href="./cart-page.html" class="btn btn--red cart__button">Gå till kassan</a>
-			</div>
-
-			<section class="menuHeaders">
-				<button class="menuHeaders__button menuHeaders__button--active menuHeaders__button--test">Wonton</button>
-				<button class="menuHeaders__button">Burritos</button>
-				<button class="menuHeaders__button">Burgers</button>
-				<button class="menuHeaders__button">Ramen</button>
-				<button class="menuHeaders__button menuHeaders__button--test3">Dip</button>
-				<button class="menuHeaders__button menuHeaders__button--test2">Dryck</button>
+				<a href="menu.html" class="categories__cards">
+					<img src="../resources/images/wontons.jpg" class="categories__img" alt="Wontons-meny" />
+					<h2 class="categories__title">Wontons</h2>
+				</a>
+				<section class="categories__cards">
+					<img src="../resources/images/dumplings.jpg" class="categories__img" alt="Ramen-meny" />
+					<h2 class="categories__title">Dumplings</h2>
+				</section>
+				<a href="menu.html" class="categories__cards">
+					<img src="../resources/images/sauce.jpg" class="categories__img" alt="Dip-meny" />
+					<h2 class="categories__title">Dip</h2>
+				</a>
+				<a href="menu.html" class="categories__cards">
+					<img src="../resources/images/drink.jpg" class="categories__img" alt="Dryckes-meny" />
+					<h2 class="categories__title">Dryck</h2>
+				</a>
 			</section>
-			<section class="menu"></section>
 		</div>
 	</body>
 </html>
