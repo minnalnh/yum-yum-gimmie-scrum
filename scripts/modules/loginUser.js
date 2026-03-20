@@ -1,5 +1,8 @@
 import { getElement } from '../utils/domUtils.js';
 
+const users = localStorage.getItem("users")
+const userList = JSON.parse(users);
+console.log(userList)
 // ja, jag har fått hjälp av ai här och där... blev förbannad
 
 loginUser();
@@ -35,6 +38,7 @@ export function loginUser() {
 
 		if (validateLogin(username, password, emailErrorRef)) {
 			const user = findUser(username);
+			console.log(user)
 
 			if (!user || user.password !== password) {
 				if (emailErrorRef) {
